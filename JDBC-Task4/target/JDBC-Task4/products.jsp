@@ -11,6 +11,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Product List</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -20,14 +21,14 @@
     <h1>Product List</h1>
     <table>
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Brand</th>
-                <th>Price</th>
-                <th>Discount Percentage</th>
-                <th>Total Quantity</th>
-                <th>Actions</th>
-            </tr>
+            <tr >
+                <th style="width: 20%;">NAME</th>
+                <th style="width: 20%;">BRAND</th>
+                <th style="width: 20%;">PRICE</th>
+                <th style="width: 20%;">DISCOUNT PERCENT</th>
+                <th style="width: 10%;">TOTAL QUANTITY</th>
+                <th style="width: 10%;">ACTIONS</th>
+
         </thead>
         <tbody>
             <%
@@ -42,7 +43,7 @@
                     <td><%= item.getTotalQuantity() %></td>
                     <td>
                         <form action="DeleteProductServlet" method="get" onsubmit=" return confirm('Are you sure you want to delete the product: <%= item.getName() %>?');">
-                            <button type="submit" name="productName" value="<%= item.getId() %>">Delete <i class="fa-solid fa-trash"></i></button>
+                            <button type="submit" id="delete-button" name="productName" value="<%= item.getId() %>">Delete <i class="fa-solid fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>
