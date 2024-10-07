@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.BeanClass.product" %>
-
+<%@ page import="com.example.Servlets.DisplayServlet" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +11,12 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Product List</title>
-    <script>
-        function confirmDelete(productName) {
-            return confirm("Are you sure you want to delete the product: " + productName + "?");
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <%  
+        List<product> products = DisplayServlet.fetchproducts(); 
+    %>
     <h1>Product List</h1>
     <table>
         <thead>
@@ -32,7 +31,6 @@
         </thead>
         <tbody>
             <%
-            List<product> products = (List<product>) request.getAttribute("products");
                 if (products != null && !products.isEmpty()) {
                     for (product item : products) {
             %>
@@ -43,8 +41,8 @@
                     <td><%= item.getDiscountPercent() %></td>
                     <td><%= item.getTotalQuantity() %></td>
                     <td>
-                        <form action="DeleteProductServlet" method="post" onsubmit="return confirmDelete('<%= item.getName() %>')">
-                            <button type="submit" name="productName" value="<%= item.getId() %>">Delete</button>
+                        <form action="DeleteProductServlet" method="get" onsubmit=" return confirm('Are you sure you want to delete the product: <%= item.getName() %>?');">
+                            <button type="submit" name="productName" value="<%= item.getId() %>">Delete <i class="fa-solid fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>

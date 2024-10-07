@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +16,13 @@ import com.example.BeanClass.Customer;
 import com.example.BeanClass.product;
 import com.example.JDBCConnectivity.DatabaseConnection;
 
-
 public class DisplayServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String type = request.getParameter("type");
 
         if (type.equals("customers")) {
@@ -29,19 +30,19 @@ public class DisplayServlet extends HttpServlet {
             request.setAttribute("customers", customers);
             request.getRequestDispatcher("Customers.jsp").forward(request, response);
         } else {
-            List<product> products = fetchproducts(); 
+            List<product> products = fetchproducts();
             request.setAttribute("products", products);
             request.getRequestDispatcher("products.jsp").forward(request, response);
         }
     }
 
-    protected static List<Customer> fetchCustomers() {
-        String query = "SELECT * FROM customers"; 
+    public static List<Customer> fetchCustomers() {
+        String query = "SELECT * FROM customers";
         List<Customer> customers = new ArrayList<>();
 
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
+                PreparedStatement stmt = conn.prepareStatement(query);
+                ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -52,18 +53,18 @@ public class DisplayServlet extends HttpServlet {
                 customers.add(customer);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
         return customers;
     }
 
-    protected static List<product> fetchproducts() {
-        String query = "SELECT * FROM products"; 
+    public static List<product> fetchproducts() {
+        String query = "SELECT * FROM Products";
         List<product> products = new ArrayList<>();
 
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
+                PreparedStatement stmt = conn.prepareStatement(query);
+                ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -73,12 +74,14 @@ public class DisplayServlet extends HttpServlet {
                 double discountPercent = rs.getDouble("discountPercent");
                 int totalQuantity = rs.getInt("totalQuantity");
 
-                product product = new product(id,name, brand, price, discountPercent, totalQuantity);
+                product product = new product(id, name, brand, price, discountPercent, totalQuantity);
                 products.add(product);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
         return products;
     }
 }
+
+

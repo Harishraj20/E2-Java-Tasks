@@ -1,4 +1,3 @@
-com\example\DisplayList\ProductDisplay.class
 com\example\Servlets\DeleteServlet.class
 com\example\BeanClass\Customer.class
 com\example\BeanClass\product.class

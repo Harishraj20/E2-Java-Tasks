@@ -50,8 +50,8 @@
             <option value="emailId">EmailId</option>
             <option value="age">Age</option>
         </select>
-        <button type="submit" name="type" value="asc">Asc</button>
-        <button type="submit" name="type" value="desc">Desc</button>
+        <button type="submit" name="sortorder" value="asc">Asc</button>
+        <button type="submit" name="sortorder" value="desc">Desc</button>
     </form>
     
     <br>
