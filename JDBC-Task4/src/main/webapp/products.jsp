@@ -18,7 +18,7 @@
     <%  
         List<product> products = DisplayServlet.fetchproducts(); 
     %>
-    <h1>Product List</h1>
+    <h1 style="text-align: center; color:#1f0a50;">PRODUCTS LIST</h1>
     <table>
         <thead>
             <tr >
@@ -52,7 +52,7 @@
                 } else {
             %>
                 <tr>
-                    <td colspan="5">No products available to view!!</td>
+                    <td colspan="6">No products available to view!!</td>
                 </tr>
             <%
                 } 

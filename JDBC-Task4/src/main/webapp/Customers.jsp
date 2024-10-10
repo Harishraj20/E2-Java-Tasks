@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Customer List</h1>
+    <h1 style="text-align: center; color:#1f0a50;">CUSTOMERS LIST</h1>
     <table>
         <thead>
             <tr>
@@ -46,13 +46,15 @@
     </table>
     <form action="SortServlet" method="post">
         <select name="value" id="options">
-            <option value="name">Name</option>
-            <option value="emailId">EmailId</option>
-            <option value="age">Age</option>
+            <option value="name" ${param.value == null || param.value == 'name' ? 'selected' : ''}>Name</option>
+            <option value="emailId" ${param.value == 'emailId' ? 'selected' : ''}>EmailId</option>
+            <option value="age" ${param.value == 'age' ? 'selected' : ''}>Age</option>
         </select>
         <button type="submit" name="sortorder" value="asc">Asc</button>
         <button type="submit" name="sortorder" value="desc">Desc</button>
     </form>
+    
+    
     
     <br>
     <br>
