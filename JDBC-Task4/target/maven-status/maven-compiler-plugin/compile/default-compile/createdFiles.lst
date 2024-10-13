@@ -1,0 +1,7 @@
+com\example\Servlets\DeleteServlet.class
+com\example\BeanClass\Customer.class
+com\example\BeanClass\product.class
+com\example\Servlets\DisplayServlet.class
+com\example\Servlets\SortServlet.class
+com\example\JDBCConnectivity\DatabaseConnection.class
+com\example\DisplayList\CustomerDisplay.class
