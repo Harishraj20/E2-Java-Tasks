@@ -54,7 +54,7 @@ public class DisplayServlet extends HttpServlet {
         return customers;
     }
 
-    public List<product> fetchProducts() {
+    public static List<product> fetchProducts() {
         List<product> products = new ArrayList<>();
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();

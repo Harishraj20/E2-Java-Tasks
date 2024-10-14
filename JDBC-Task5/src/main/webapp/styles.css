@@ -1,257 +1,244 @@
-.table {
-    width: 100%;
-    height: 60%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1em;
-    text-align: left;
-    padding-right: 10px;
-    padding-left: 10px;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-th, td {
-    padding: 10px;
-    border: 1px solid #0a0404;
+html,
+body {
+  height: 100%;
+  background-color: #fffefe;
+}
+.table {
+  width: 100%;
+  height: 60%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  text-align: left;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+th,
+td {
+  padding: 10px;
+  border: none;
 }
 
 th {
-    background-color: #1f0a50;
-    color: #ffffff;
-    text-align: center;
+  background-color: #1f0a50;
+  color: #ffffff;
+  text-align: center;
 }
 
 tr:nth-child(even) {
-    background-color: #beb3d6;
+  background-color: #beb3d6;
 }
 
-
-
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+#addGroupForm {
+  height: 70%;
+  padding: 5%;
 }
 
-html, body {
-    height: 100%;
-    background-color: #fffefe;
-}
-#addGroupForm{
-    height: 70%;
-    padding: 5%;
-}
-
-
-.add-customer-modal{
-     
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;   
+.add-customer-modal {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .modal-content {
-    height: 60%;
-    background: #fff;
-    border-radius: 8px;
-    width: 33%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
+  height: 60%;
+  background: #fff;
+  border-radius: 8px;
+  width: 33%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
-.close-button{
-    cursor: pointer;
+.close-button {
+  cursor: pointer;
 }
-.heading{
-    padding-top: 3%;
-    padding-bottom: 2%;
-    width: 100%;
-    height: 12%;
-    display: flex;
-    align-items: center;
+.heading {
+  padding-top: 3%;
+  padding-bottom: 2%;
+  width: 100%;
+  height: 12%;
+  display: flex;
+  align-items: center;
 }
-h3{
-    width: 90%;
-    text-align: center;
-    
+h3 {
+  width: 90%;
+  text-align: center;
 }
-.error-message{
-    height: 2%;
-    text-align: center;
-    visibility: hidden;
-   
+.error-message {
+  height: 2%;
+  text-align: center;
+  visibility: hidden;
 }
-.form-elements{
-    height: 8%;
-    display: flex;
-    margin-bottom: 5%;
-    align-items: center;
+.form-elements {
+  height: 8%;
+  display: flex;
+  margin-bottom: 5%;
+  align-items: center;
 }
-label{
-    width: 40%;
-    padding-right: 2%;
+label {
+  width: 40%;
+  padding-right: 2%;
 }
 input[type="text"] {
-    width: 70%;
-    padding: 2%; 
-    border-radius: 5px;
-    border: 1px solid #aca6a6; /* Light gray border */
+  width: 70%;
+  padding: 2%;
+  border-radius: 5px;
+  border: 1px solid #aca6a6; 
 }
-.addCustomerForm{
-    margin-top: 3%;
- height: 80%;
+.addCustomerForm {
+  margin-top: 3%;
+  height: 80%;
 }
 
-.addCustomerForm{
-    margin-right: 5%;
-    margin-left: 5%;
+.addCustomerForm {
+  margin-right: 5%;
+  margin-left: 5%;
 }
-.form-button{
-    height: 10%;
-    display: flex;
-    margin-bottom: 2%;
-    align-items: center;
-    justify-content: space-between;
-
+.form-button {
+  height: 10%;
+  display: flex;
+  margin-bottom: 2%;
+  align-items: center;
+  justify-content: space-between;
 }
-.reset-button{
-    width: 40%;
-    gap: 10%;
-    padding: 2%;
-    background-color: #e4dfef;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
+.reset-button {
+  width: 40%;
+  gap: 10%;
+  padding: 2%;
+  background-color: #e4dfef;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.submit-button{
-    width: 40%;
-    gap: 10%;
-    padding: 2%;
-    background-color: #332cb8;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-
+.submit-button {
+  width: 40%;
+  gap: 10%;
+  padding: 2%;
+  background-color: #332cb8;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
 }
 .form-elements label::after {
-    content: " *";
-    color: red; 
-    margin-left: 3px;
+  content: " *";
+  color: red;
+  margin-left: 3px;
 }
-.form-button{
-    margin-top: 5%;
-    margin-bottom: 3%;
-
+.form-button {
+  margin-top: 5%;
+  margin-bottom: 3%;
 }
-h2{
-    padding: 2%;
-}
-
-.formHeader{
- 
-    height: 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 5%;
-    padding-right: 5%;
+h2 {
+  padding: 2%;
 }
 
-.formSort{
-    width: 40%;
+.formHeader {
+  height: 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
 }
-.add-customer{
-    padding: 1%;
-    border-radius: 10px;
-    background-color: #1f0a50;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
+
+.formSort {
+  width: 40%;
 }
-.sortButton{
-    padding: 2%;
-    margin: 2%;
-    padding-right: 5%;
-    padding-left: 5%;
-    border-radius: 10px;
-    background-color: #1f0a50;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
+.add-customer {
+  padding: 1%;
+  border-radius: 10px;
+  background-color: #1f0a50;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
 }
-#options{
-    padding: 1%;
-    margin: 2%;
-    padding-right: 10%;
-    padding-left: 10%;
-    border-radius: 5px;
+.sortButton {
+  padding: 2%;
+  margin: 2%;
+  padding-right: 5%;
+  padding-left: 5%;
+  border-radius: 10px;
+  background-color: #1f0a50;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
 }
 #options {
-   
-    cursor: pointer;
-    background-color: #f5f5f5; 
-    border: 1px solid #ccc; /* Subtle border around the dropdown */
-    color: #333; 
-    font-size: 16px; 
- 
+  padding: 1%;
+  margin: 2%;
+  padding-right: 10%;
+  padding-left: 10%;
+  border-radius: 5px;
+}
+#options {
+  cursor: pointer;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 16px;
 }
 #options option {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
- option:hover {
-    background-color: #dcdcdc; 
+option:hover {
+  background-color: #dcdcdc;
 }
-#back-button{
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    background-color: #1f0a50;
-    border: none;
-    color: #ffffff;
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
+#back-button {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #1f0a50;
+  border: none;
+  color: #ffffff;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
 }
-.backbutton-div{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+.backbutton-div {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }
-.action-button{
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.edit-button,.delete-form{
-    width: 40%;
-    padding: 4%;
-    border: none;
-    background-color: #1f0a50;
-    color: #fffefe;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.delete-button{
-    width: 100%;
-    background-color: #1f0a50;
-    border: none;
-    border-radius: 10px;
-    color: #ffffff;
-    cursor: pointer;
+.action-button {
+  display: flex;
+  justify-content: space-between;
 }
 
-
-
-
+.edit-button,
+.delete-form {
+  width: 40%;
+  padding: 4%;
+  border: none;
+  background-color: #1f0a50;
+  color: #fffefe;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.delete-button {
+  width: 100%;
+  background-color: #1f0a50;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.success-message {
+  text-align: center;
+}

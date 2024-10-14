@@ -16,6 +16,15 @@
             display: flex;
             justify-content: space-between;
         }
+        th,
+        td {
+        padding: 10px;
+        border: none;
+        }
+        table{
+            width: 100%;
+        }
+
 
 
         .edit-button,.delete-form{
@@ -58,11 +67,6 @@
 
         <button class="add-customer" id="add-customer-button">Add Customer</button>
     </div>
-
-    <p class="error-message" id="error-message" style="visibility: <%= request.getAttribute("error") != null ? "visible" : "hidden" %>;">
-        <%= request.getAttribute("error") != null ? request.getAttribute("error") : "" %>
-    </p>
-
     <div class="table">
     <table>
         <thead>
@@ -112,37 +116,40 @@
     </table>
 </div>
 
-    <div id="addUserModal" class="add-customer-modal" style="display: none;">
+    <div id="addUserModal" class="add-customer-modal"  style="display: none;">
         <div class="modal-content">
             <div class="heading">
                 <h3 id="modal-title">ADD CUSTOMERS</h3>
                 <span class="close-button"><i class="fa-regular fa-circle-xmark fa-lg"></i></span>
             </div>
-            <form id="customerForm" class="addCustomerForm" action="AddServlet" method="post">
+            <p class="error-message"> 
+            </p>
+            <form id="customerForm" class="addCustomerForm" action="AddServlet" onsubmit="return validateFields()" method="post">
+
                 <input type="hidden" name="customerId" id="customerId">
                 <div class="form-elements">
                     <label for="name">NAME:</label>
-                    <input type="text" name="name" id="name" required>
+                    <input type="text" name="name" id="name" placeholder="Enter Name">
                 </div>
                 <div class="form-elements">
                     <label for="age">AGE:</label>
-                    <input type="text" name="age" id="age" required>
+                    <input type="text" name="age" id="age" placeholder="Enter age">
                 </div>
                 <div class="form-elements">
                     <label for="mobile">MOBILE NUMBER:</label>
-                    <input type="text" name="mobile" id="mobile" required>
+                    <input type="text" name="mobile" id="mobile" placeholder="Enter 10 Digit Mobile Number" >
                 </div>
                 <div class="form-elements">
                     <label for="gender">GENDER:</label>
-                    <input type="text" name="gender" id="gender" required>
+                    <input type="text" name="gender" id="gender" placeholder="Enter Gender" >
                 </div>
                 <div class="form-elements">
                     <label for="email">MAIL-ID:</label>
-                    <input type="text" name="email" id="email" required>
+                    <input type="text" name="email" id="email"  placeholder="Enter Email [Example - abc@domain.com]">
                 </div>
                 <div class="form-elements">
                     <label for="location">LOCATION:</label>
-                    <input type="text" name="location" id="location" required>
+                    <input type="text" name="location" id="location" placeholder="Enter Location">
                 </div>
                 <div class="form-button">
                     <input class="reset-button" type="reset" value="Reset">
