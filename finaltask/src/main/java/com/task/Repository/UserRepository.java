@@ -56,6 +56,9 @@ public class UserRepository {
             users = criteria.list();
         } catch (HibernateException e) {
             System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("General error: " + e);
+            return null;
         }
         return users;
     }
@@ -80,6 +83,9 @@ public class UserRepository {
         } catch (HibernateException e) {
             System.out.println(e);
             return "Corrupted";
+        } catch (Exception e) {
+            System.out.println("General error: " + e);
+            return "Exception";
         }
 
         return message;
