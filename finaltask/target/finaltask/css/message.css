@@ -69,13 +69,7 @@ body {
   margin-right: 8px;
   color: #fffbe6;
 }
-@media (min-width: 780px) and (max-width: 1170px) {
-  .card {
-    padding: 25px 35px;
-    width: 55%;
-    height: 25%;
-  }
-}
+
 @media (min-width: 319px) and (max-width: 650px) {
   .card {
     padding: 25px 35px;
@@ -90,6 +84,13 @@ body {
     height: 28%;
   }
 }
+@media (min-width: 780px) and (max-width: 1170px) {
+  .card {
+    padding: 25px 35px;
+    width: 55%;
+    height: 25%;
+  }
+}
 @media (min-width: 1170px) and (max-width: 1200px) {
   .card {
     padding: 25px 35px;
@@ -97,3 +98,12 @@ body {
     height: 25%;
   }
 }
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .card {
+    padding: 25px 35px;
+    width: 55%;
+    height: 28%;
+  }
+}
+
+

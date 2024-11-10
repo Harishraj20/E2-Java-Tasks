@@ -34,6 +34,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView("message");
 
         String msg = service.addUsers(user);
+        System.out.println(msg);
         mv.addObject("msg", msg);
         System.out.println("Into add User");
         return mv;

@@ -23,6 +23,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.task.Model.User;
 
 import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -221,6 +222,24 @@ public class UserRepositoryTest {
         when(session.createCriteria(User.class)).thenThrow(new RuntimeException("Runtime error"));
 
         User result = userRepository.checkExistingUser(user1);
+        assertNull(result);
+
+    }
+
+    @Test
+    public void testValidateLogin_GeneralException() {
+        doThrow(new RuntimeException()).when(session).update(user1);
+
+        String result = userRepository.validateLogin(user1);
+
+        assertEquals("Exception", result);
+    }
+
+    @Test
+    public void getUsers_Exception() {
+        when(criteria.list()).thenThrow(new RuntimeException());
+
+        List<User> result = userRepository.getUsers();
         assertNull(result);
 
     }

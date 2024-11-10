@@ -2,6 +2,8 @@ package com.task.Controller;
 
 import com.task.Model.User;
 import com.task.Service.UserService;
+
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +18,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml") 
+@ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
 @WebAppConfiguration
 public class UserControllerTest {
 
@@ -35,13 +38,14 @@ public class UserControllerTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.openMocks(this);  
+        MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
-
 
         user = new User();
         user.setUserName("Harish");
         user.setPassword("Harish@1");
+        // user.setVisitCount(3);
+        // user.setLastLogin(LocalDateTime.of(2002, 10, 12, 12, 24, 0));
     }
 
     @Test
@@ -53,29 +57,33 @@ public class UserControllerTest {
 
     @Test
     public void testAddUser() throws Exception {
-        when(userService.addUsers(user)).thenReturn("User added successfully");
+
+        when(userService.addUsers(any(User.class))).thenReturn("User added successfully");
 
         mockMvc.perform(MockMvcRequestBuilders.post("/addUser")
                 .param("userName", "Harish")
                 .param("password", "Harish@1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("message"))
-                .andExpect(MockMvcResultMatchers.model().attribute("msg", "User \"Harish\" Created Successfully!!"));
+                .andExpect(MockMvcResultMatchers.model().attribute("msg", "User added successfully"));
     }
 
     @Test
     public void testViewUsers() throws Exception {
+
         when(userService.fetchDetails()).thenReturn(List.of(user));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/Views"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("Details"))
-                .andExpect(MockMvcResultMatchers.model().attributeExists("userList"));
+                .andExpect(MockMvcResultMatchers.model().attributeExists("userList"))
+                .andExpect(MockMvcResultMatchers.model().attribute("userList", Matchers.hasSize(1)))
+                .andExpect(MockMvcResultMatchers.model().attribute("userList", Matchers.hasItem(user)));
     }
 
     @Test
     public void testLoginUser() throws Exception {
-        when(userService.verifyLogin(user)).thenReturn("Login successful");
+        when(userService.verifyLogin(any(User.class))).thenReturn("Login successful");
 
         mockMvc.perform(MockMvcRequestBuilders.post("/login")
                 .param("userName", "Harish")

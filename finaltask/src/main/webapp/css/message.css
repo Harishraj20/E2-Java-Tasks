@@ -98,3 +98,12 @@ body {
     height: 25%;
   }
 }
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .card {
+    padding: 25px 35px;
+    width: 55%;
+    height: 28%;
+  }
+}
+
+

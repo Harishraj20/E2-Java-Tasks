@@ -11,7 +11,6 @@ body {
 }
 
 body {
-  /* background-image: url("background.png"); */
   background-image: url("/finaltask/img/background.png");
   color: #fff;
   display: flex;
@@ -304,20 +303,7 @@ input[type="password"] {
 h2 {
   padding: 2%;
 }
-@media (max-width: 672px) {
-  .holder {
-    height: 70%;
-    width: 90%;
-  }
-  .modal-content {
-    height: 50%;
-    width: 90%;
-  }
-  .modal-content-for-Login {
-    height: 50%;
-    width: 90%;
-  }
-}
+
 @media (min-width: 490px) and (max-width: 660px) {
   .holder {
     height: 70%;
@@ -332,21 +318,21 @@ h2 {
     width: 90%;
   }
 }
-
-@media (min-width: 780px) and (max-width: 1131px) {
+@media (max-width: 672px) {
   .holder {
     height: 70%;
-    width: 40%;
+    width: 90%;
   }
   .modal-content {
     height: 50%;
-    width: 50%;
+    width: 90%;
   }
   .modal-content-for-Login {
     height: 50%;
-    width: 50%;
+    width: 90%;
   }
 }
+
 @media (min-width: 651px) and (max-width: 780px) {
   .holder {
     height: 65%;
@@ -359,6 +345,20 @@ h2 {
   .modal-content-for-Login {
     height: 50%;
     width: 60%;
+  }
+}
+@media (min-width: 780px) and (max-width: 1131px) {
+  .holder {
+    height: 70%;
+    width: 40%;
+  }
+  .modal-content {
+    height: 50%;
+    width: 50%;
+  }
+  .modal-content-for-Login {
+    height: 50%;
+    width: 50%;
   }
 }
 @media (min-width: 1131px) and (max-width: 1600px) {
