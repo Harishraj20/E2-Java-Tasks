@@ -1,0 +1,4 @@
+com\task\User\UserTest.class
+com\task\Repository\UserRepositoryTest.class
+com\task\Controller\UserControllerTest.class
+com\task\Service\UserServiceTest.class
