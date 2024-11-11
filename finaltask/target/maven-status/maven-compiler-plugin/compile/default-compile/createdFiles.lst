@@ -1,4 +1,0 @@
-com\task\Repository\UserRepository.class
-com\task\Service\UserService.class
-com\task\Controller\UserController.class
-com\task\Model\User.class
