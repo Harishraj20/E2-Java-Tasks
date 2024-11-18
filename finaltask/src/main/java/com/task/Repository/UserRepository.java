@@ -124,11 +124,13 @@ public class UserRepository {
             User user = session.get(User.class, userId);
             if (user != null) {
                 session.delete(user);
+                logger.info("user deleted with the id:{}",userId);
+
             }
         } catch (HibernateException e) {
-            System.out.println("HibernateException : " + e);
+            logger.error("HibernateException while updating user");
         } catch (Exception e) {
-            System.out.println("Exception : " + e);
+            logger.error("Exception while updating user");
         }
     }
 
@@ -136,12 +138,14 @@ public class UserRepository {
     public User findUser(int userIdForAction) {
         try {
             Session session = sessionFactory.getCurrentSession();
+            logger.info("user found with the id:{}",userIdForAction);
             return session.get(User.class, userIdForAction);
+
         } catch (HibernateException e) {
-            System.out.println("HibernateException : " + e);
+            logger.error("HibernateException while updating user");
             return null;
         } catch (Exception e) {
-            System.out.println("Exception : " + e);
+            logger.error("Exception while updating user");
             return null;
         }
     }
@@ -155,10 +159,10 @@ public class UserRepository {
                     .add(Restrictions.ne("userId", userId));
             return (User) criteria.uniqueResult();
         } catch (HibernateException e) {
-            System.out.println("HibernateException : " + e);
+            logger.error("HibernateException while updating user");
             return null;
         } catch (Exception e) {
-            System.out.println("Exception : " + e);
+            logger.error("Exception while updating user");
             return null;
         }
     }
@@ -169,9 +173,9 @@ public class UserRepository {
             Session session = sessionFactory.getCurrentSession();
             session.update(user);
         } catch (HibernateException e) {
-            System.out.println("HibernateException : " + e);
+            logger.error("HibernateException while updating user");
         } catch (Exception e) {
-            System.out.println("Exception : " + e);
+            logger.error("Exception while updating user");
         }
     }
 
@@ -184,7 +188,8 @@ public class UserRepository {
             criteria.setMaxResults(pageSize);
             return criteria.list();
         } catch (HibernateException e) {
-            System.out.println("HibernateException in fetchUsersWithPagination: " + e);
+            logger.error("HibernateException while retrieving inactive users (offset: {}, pageSize: {}): {}", offset,
+            pageSize, e.getMessage());
             return Collections.emptyList();
         }
     }
@@ -197,7 +202,11 @@ public class UserRepository {
             criteria.setProjection(Projections.rowCount());
             return ((Long) criteria.uniqueResult()).intValue();
         } catch (HibernateException e) {
-            System.out.println("HibernateException in countTotalUsers: " + e);
+            logger.error("HibernateException in count total users");
+            return 0;
+        }
+        catch (Exception e) {
+            logger.error("Exception in count total users");
             return 0;
         }
     }
