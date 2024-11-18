@@ -19,11 +19,13 @@
   </head>
   <body>
     <div class="card">
+      <p class="message-content">${Message}</p>
       <p class="message-content">${msg}</p>
-
-      <form class="button-container" action="/finaltask/back" method="get">
+      
+      
+      <form class="button-container" action="/finaltask/users" method="get">
         <button class="back-button" type="submit">
-          <i class="fa-solid fa-arrow-left fa-xs"></i>  Back
+          <i class="fa-solid fa-arrow-left fa-xs"></i> Back
         </button>
       </form>
     </div>

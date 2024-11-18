@@ -27,7 +27,7 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/harishdb" />
+        <property name="url" value="jdbc:mysql://localhost:3306/finaltask" />
         <property name="username" value="Harishraj" />
         <property name="password" value="Harishraj@12" />
     </bean>
@@ -37,6 +37,7 @@
         <property name="mappingResources">
             <list>
                 <value>User.hbm.xml</value>
+                <value>Login.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -46,7 +47,9 @@
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
+        <property name="packagesToScan" value="com.task.Model" />
     </bean>
+
 
     <bean id="transactionManager"
         class="org.springframework.orm.hibernate5.HibernateTransactionManager">
