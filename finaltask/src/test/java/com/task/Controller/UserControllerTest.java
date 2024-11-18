@@ -56,31 +56,31 @@ public class UserControllerTest {
 
     @Test
     public void testLoginUser_Success() throws Exception {
-        when(userService.authenticateUser(eq("test@example.com"), eq("password"), any(HttpSession.class)))
+        when(userService.authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class)))
                 .thenReturn(true);
 
         mockMvc.perform(post("/users")
-                .param("emailId", "test@example.com")
-                .param("password", "password"))
+                .param("emailId", "Harish@gmail.com")
+                .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users"));
 
-        verify(userService, times(1)).authenticateUser(eq("test@example.com"), eq("password"), any(HttpSession.class));
+        verify(userService, times(1)).authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class));
     }
 
     @Test
     public void testLoginUser_Failure() throws Exception {
-        when(userService.authenticateUser(eq("test@example.com"), eq("password"), any(HttpSession.class)))
+        when(userService.authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class)))
                 .thenReturn(false);
 
         mockMvc.perform(post("/users")
-                .param("emailId", "test@example.com")
-                .param("password", "password"))
+                .param("emailId", "Harish@gmail.com")
+                .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/"))
                 .andExpect(flash().attributeExists("message"));
 
-        verify(userService, times(1)).authenticateUser(eq("test@example.com"), eq("password"), any(HttpSession.class));
+        verify(userService, times(1)).authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class));
     }
 
     @Test
@@ -104,18 +104,18 @@ public class UserControllerTest {
 
     @Test
     public void testChangePassword_Success() throws Exception {
-        when(userService.updateUserPassword(any(HttpSession.class), eq("oldPassword"), eq("newPassword")))
+        when(userService.updateUserPassword(any(HttpSession.class), eq("Harish@1"), eq("Harish@12")))
                 .thenReturn(true);
 
         mockMvc.perform(post("/users/changepassword")
-                .param("oldPassword", "oldPassword")
-                .param("newPassword", "newPassword"))
+                .param("oldPassword", "Harish@1")
+                .param("newPassword", "Harish@12"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("Message"))
                 .andExpect(model().attribute("Message", "Password Updated Successfully"))
                 .andExpect(view().name("Redirect"));
 
-        verify(userService, times(1)).updateUserPassword(any(HttpSession.class), eq("oldPassword"), eq("newPassword"));
+        verify(userService, times(1)).updateUserPassword(any(HttpSession.class), eq("Harish@1"), eq("Harish@12"));
     }
 
     @Test
@@ -124,13 +124,13 @@ public class UserControllerTest {
                 .thenReturn(false);
 
         mockMvc.perform(post("/users/changepassword")
-                .param("oldPassword", "oldPassword")
-                .param("newPassword", "newPassword"))
+                .param("oldPassword", "Harish@1")
+                .param("newPassword", "Harish@12"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("message"))
                 .andExpect(view().name("ChangePassword"));
 
-        verify(userService, times(1)).updateUserPassword(any(HttpSession.class), eq("oldPassword"), eq("newPassword"));
+        verify(userService, times(1)).updateUserPassword(any(HttpSession.class), eq("Harish@1"), eq("Harish@12"));
     }
 
     @Test
@@ -191,7 +191,7 @@ public class UserControllerTest {
 
         mockMvc.perform(get("/users/viewInfo")
                 .param("userId", "1")
-                .param("employeeId", "123")
+                .param("employeeId", "1")
                 .sessionAttr("LoginUser", "admin"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("LoginInfo"));

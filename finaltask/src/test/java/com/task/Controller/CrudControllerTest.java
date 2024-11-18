@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.ui.Model;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
@@ -31,13 +32,15 @@ public class CrudControllerTest {
 
     @Mock
     private UserService userService;
+    @Mock
+    private Model model;
 
     private MockMvc mockMvc;
 
     @Before
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        crudController = new CrudController(userService); // Ensure CrudController has this constructor
+        crudController = new CrudController(userService);
         mockMvc = MockMvcBuilders.standaloneSetup(crudController).build();
     }
 
@@ -145,5 +148,35 @@ public class CrudControllerTest {
         mockMvc.perform(get("/users/addform"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("Signup"));
+    }
+    @Test
+    public void testUpdateForm_UserFound() throws Exception {
+        User user = new User();
+        user.setUserId(1);
+        user.setUserName("Harish");
+
+        when(userService.findUserById(1)).thenReturn(user);
+
+        mockMvc.perform(get("/users/updateform")
+                .param("userId", "1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("UpdateForm"))
+                .andExpect(model().attribute("user", user));
+
+        verify(userService).findUserById(1);
+        verify(model, never()).addAttribute("error", "User not found");
+    }
+
+    @Test
+    public void testUpdateForm_UserNotFound() throws Exception {
+        when(userService.findUserById(99)).thenReturn(null);
+
+        mockMvc.perform(get("/users/updateform")
+                .param("userId", "10"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("UpdateForm"));
+
+        verify(userService).findUserById(10);
+        verify(model, never()).addAttribute("user", new User());
     }
 }

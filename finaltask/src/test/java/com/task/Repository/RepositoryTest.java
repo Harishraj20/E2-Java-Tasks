@@ -18,9 +18,11 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 import org.hibernate.criterion.Projections;
@@ -30,10 +32,13 @@ import org.hibernate.query.Query;
 import com.task.Model.Login;
 import com.task.Model.User;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
@@ -48,7 +53,9 @@ public class RepositoryTest {
 
     @Mock
     private Criteria criteria;
-
+    private User testUser;
+    private  Login login;
+    private  User loginUser;
     private Query<Login> query = mock(Query.class);
     Query<Long> mockQuery = mock(Query.class);
 
@@ -60,6 +67,28 @@ public class RepositoryTest {
     @Before
     public void setUp() {
         MockitoAnnotations.openMocks(this);
+        testUser = new User("Arvind Kumar", "Aravind@1", "arvind.kumar@gmail.com",
+        "1992-12-10", "Software Engineer", "Admin", 1, "Male");
+
+        loginUser = new User("Siva", "siva123", "siva@gmail.com", "1990-01-01", "Developer", "Admin", 1,
+                "Male");
+
+          LocalDateTime loginTime = LocalDateTime.now();
+
+         login = new Login(testUser, 5, loginTime);
+         login.setUser(testUser);
+         login.getUser();
+         testUser.getLoginStatus();
+         LocalDateTime loginTime1 = LocalDateTime.now().minusDays(1);
+         LocalDateTime loginTime2 = LocalDateTime.now();
+ 
+          Set<Login> logins = new HashSet<>();
+        logins.add(new Login(testUser, 1, loginTime1));
+        logins.add(new Login(testUser, 2, loginTime2));
+        testUser.setLogins(logins);
+        testUser.getLogins();
+
+
 
         when(sessionFactory.getCurrentSession()).thenReturn(session);
         when(session.createCriteria(User.class)).thenReturn(criteria);
@@ -75,50 +104,69 @@ public class RepositoryTest {
                 .thenReturn(query);
 
     }
+     @Test
+    public void testSaveLoginInfo_Success() {
+        userRepository.saveLoginInfo(login);
+
+        verify(sessionFactory, times(1)).getCurrentSession();
+        verify(session, times(1)).save(login);
+    }
+
+    @Test
+    public void testSaveLoginInfo_HibernateException() {
+        doThrow(new HibernateException("Test Exception")).when(session).save(login);
+
+        userRepository.saveLoginInfo(login);
+
+        verify(sessionFactory, times(1)).getCurrentSession();
+    }
+
+    @Test
+    public void testSaveLoginInfo_GenericException() {
+        doThrow(new RuntimeException("Test Exception")).when(session).save(login);
+
+        userRepository.saveLoginInfo(login);
+
+        verify(sessionFactory, times(1)).getCurrentSession();
+    }
+
 
     @Test
     public void testAddUserInfo_Success() {
-        User user = new User();
-        user.setEmailId("xyz@gmail.com");
-        when(session.save(user)).thenReturn(1);
-        boolean result = userRepository.addUserInfo(user);
-        verify(session, times(1)).save(user);
+       
+        when(session.save(testUser)).thenReturn(1);
+        boolean result = userRepository.addUserInfo(testUser);
+        verify(session, times(1)).save(testUser);
         assertTrue(result);
     }
 
     @Test
     public void testAddUserInfo_runtimeexception() {
-        User user = new User();
-        user.setEmailId("harsha@gmail.com");
+       
 
-        doThrow(new RuntimeException("Exception")).when(session).save(user);
-        boolean result = userRepository.addUserInfo(user);
-        verify(session, times(1)).save(user);
+        doThrow(new RuntimeException("Exception")).when(session).save(testUser);
+        boolean result = userRepository.addUserInfo(testUser);
+        verify(session, times(1)).save(testUser);
         assertFalse(result);
     }
 
     @Test
     public void testAddUserInfo_HibernateException() {
-        User user = new User();
-        user.setEmailId("Harish@gmail.com");
+      
 
-        doThrow(new HibernateException("Exception")).when(session).save(user);
-        boolean result = userRepository.addUserInfo(user);
-        verify(session, times(1)).save(user);
+        doThrow(new HibernateException("Exception")).when(session).save(testUser);
+        boolean result = userRepository.addUserInfo(testUser);
+        verify(session, times(1)).save(testUser);
         assertFalse(result);
     }
 
     @Test
     public void checkUserByEmailid_shouldReturnUser_whenUserExists() {
-        String emailId = "Harish@gmail.com";
-        User mockUser = new User();
-        mockUser.setUserId(1);
-        mockUser.setEmailId(emailId);
-
-        when(criteria.uniqueResult()).thenReturn(mockUser);
-        User result = userRepository.checkUserByEmailid(emailId);
+    
+        when(criteria.uniqueResult()).thenReturn(testUser);
+        User result = userRepository.checkUserByEmailid(testUser.getEmailId());
         assertNotNull(result);
-        assertEquals(emailId, result.getEmailId());
+        assertEquals(testUser.getEmailId(), result.getEmailId());
         verify(criteria, times(1)).add(any());
         verify(criteria, times(1)).uniqueResult();
     }
@@ -154,6 +202,8 @@ public class RepositoryTest {
         int userId = 1;
         User user = new User();
         user.setUserId(userId);
+        user.setRole("admin");
+        user.getRole();
 
         when(session.get(User.class, userId)).thenReturn(user);
         doNothing().when(session).delete(user);
@@ -172,6 +222,25 @@ public class RepositoryTest {
         verify(session, times(1)).get(User.class, userId);
         verify(session, times(0)).delete(any());
     }
+     @Test
+    public void testDeleteUser_HibernateException() {
+        int userId = 1;
+        when(session.get(User.class, userId)).thenThrow(new HibernateException("Mock HibernateException"));
+
+        assertDoesNotThrow(() -> userRepository.deleteUser(userId));
+
+    }
+
+    @Test
+    public void testDeleteUser_GeneralException() {
+        int userId = 1;
+        when(session.get(User.class, userId)).thenThrow(new RuntimeException("Mock General Exception"));
+
+        assertDoesNotThrow(() -> userRepository.deleteUser(userId));
+
+      
+    }
+    
 
     @Test
     public void countInactiveUsers() {
@@ -209,12 +278,7 @@ public class RepositoryTest {
     @Test
     public void findInactiveUsers_shouldReturnInactiveUsers_whenUsersExist() {
 
-        List<User> expectedUsers = new ArrayList<>();
-        expectedUsers.add(new User("Harish", "Harish@1", "Harish@example.com", "17-01-2001", "React Developer", "Admin",
-                0, "Male"));
-        expectedUsers
-                .add(new User("Ramesh", "Ramesh@1", "Ram@example.com", "20-10-2002", "Developer", "viewer", 0, "Male"));
-
+        List<User> expectedUsers = new ArrayList<>(Arrays.asList(testUser, loginUser));
         when(criteria.list()).thenReturn(expectedUsers);
         List<User> result = userRepository.findInactiveUsers(offset, pageSize);
 
@@ -240,7 +304,7 @@ public class RepositoryTest {
 
     @Test
     public void getTotalLoginCount_shouldReturnLoginCount_whenExists() {
-        int userId = 123;
+        int userId = 12;
         long expectedCount = 5L;
 
         Query<Long> mockQuery = mock(Query.class);
@@ -289,6 +353,14 @@ public class RepositoryTest {
     public void countTotalUsers_shouldHandleHibernateException() {
 
         when(criteria.uniqueResult()).thenThrow(new HibernateException("Test Exception"));
+
+        int result = userRepository.countTotalUsers();
+        assertEquals(0, result);
+    }
+    @Test
+    public void countTotalUsers_shouldHandleException() {
+
+        when(criteria.uniqueResult()).thenThrow(new RuntimeException("Test Generic Exception"));
 
         int result = userRepository.countTotalUsers();
         assertEquals(0, result);
@@ -482,24 +554,22 @@ public class RepositoryTest {
 
     @Test
     public void updateUser_shouldHandleHibernateException() {
-        User user = new User();
-        user.setUserId(1);
+       
 
-        doThrow(new HibernateException("Database error")).when(session).update(user);
+        doThrow(new HibernateException("Database error")).when(session).update(loginUser);
 
-        userRepository.updateUser(user);
+        userRepository.updateUser(loginUser);
 
-        verify(session).update(user);
+        verify(session).update(loginUser);
     }
 
     @Test
     public void updateUser_shouldHandleException() {
-        User user = new User();
-        user.setUserId(1);
-        doThrow(new RuntimeException("Unexpected error")).when(session).update(user);
+        
+        doThrow(new RuntimeException("Unexpected error")).when(session).update(testUser);
 
-        userRepository.updateUser(user);
-        verify(session).update(user);
+        userRepository.updateUser(testUser);
+        verify(session).update(testUser);
     }
 
     @Test

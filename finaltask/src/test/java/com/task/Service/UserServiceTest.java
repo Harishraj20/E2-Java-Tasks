@@ -1,6 +1,8 @@
 package com.task.Service;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -40,60 +42,58 @@ public class UserServiceTest {
 
     private User testUser;
     private User loginUser;
+    private User mockUser;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        testUser = new User("Arvind Kumar", "securePassword123", "arvind.kumar@gmail.com",
+
+      
+        when(session.getAttribute("LoginUser")).thenReturn(mockUser);
+
+        testUser = new User("Arvind Kumar", "Aravind@1", "arvind.kumar@gmail.com",
                 "1992-12-10", "Software Engineer", "Admin", 1, "Male");
-        loginUser = new User("John Doe", "password123", "john.doe@example.com", "1990-01-01", "Developer", "Admin", 1,
+        loginUser = new User("Siva", "siva123", "siva@gmail.com", "1990-01-01", "Developer", "Admin", 1,
                 "Male");
-              
-                
-                when(passwordEncoder.matches(anyString(), anyString())).thenReturn(true);
-                when(userRepository.checkUserByEmailid(testUser.getEmailId())).thenReturn(testUser);
-               
+
+        when(passwordEncoder.matches(anyString(), anyString())).thenReturn(true);
+        when(userRepository.checkUserByEmailid(testUser.getEmailId())).thenReturn(testUser);
+
     }
 
     @Test
     public void testAddUser_Success() {
-        User user = new User();
-        user.setEmailId("test@example.com");
 
-        when(userRepository.checkUserByEmailid(user.getEmailId())).thenReturn(null);
-        when(userRepository.addUserInfo(user)).thenReturn(true);
+        when(userRepository.checkUserByEmailid(testUser.getEmailId())).thenReturn(null);
+        when(userRepository.addUserInfo(testUser)).thenReturn(true);
 
-        boolean result = userService.addUsers(user);
+        boolean result = userService.addUsers(testUser);
 
         assertTrue(result);
-        verify(userRepository).addUserInfo(user);
+        verify(userRepository).addUserInfo(testUser);
     }
 
     @Test
     public void testAddUser_Failure_ExistingEmail() {
-        User user = new User();
-        user.setEmailId("test@example.com");
 
-        when(userRepository.checkUserByEmailid(user.getEmailId())).thenReturn(new User());
+        when(userRepository.checkUserByEmailid(testUser.getEmailId())).thenReturn(new User());
 
-        boolean result = userService.addUsers(user);
+        boolean result = userService.addUsers(testUser);
 
         assertFalse(result);
-        verify(userRepository, never()).addUserInfo(user);
+        verify(userRepository, never()).addUserInfo(testUser);
     }
 
     @Test
     public void testUpdateCredentials() {
-        User user = new User();
-        user.setLoginStatus(1);
 
-        when(userRepository.findUser(user.getUserId())).thenReturn(user);
-        doNothing().when(userRepository).updateUser(user);
+        when(userRepository.findUser(testUser.getUserId())).thenReturn(testUser);
+        doNothing().when(userRepository).updateUser(testUser);
         doNothing().when(userRepository).saveLoginInfo(any(Login.class));
 
-        userService.updateCredentials(user);
+        userService.updateCredentials(testUser);
 
-        verify(userRepository).updateUser(user);
+        verify(userRepository).updateUser(testUser);
         verify(userRepository).saveLoginInfo(any(Login.class));
     }
 
@@ -139,20 +139,16 @@ public class UserServiceTest {
         verify(userRepository).findInactiveUsers(anyInt(), anyInt());
     }
 
-
     @Test
     public void testDeleteUserById_Success() {
-        int userId = 1;
-        User user = new User();
-        user.setUserId(userId);
 
-        when(userRepository.findUser(userId)).thenReturn(user);
-        doNothing().when(userRepository).deleteUser(userId);
+        when(userRepository.findUser(testUser.getUserId())).thenReturn(testUser);
+        doNothing().when(userRepository).deleteUser(testUser.getUserId());
 
-        boolean result = userService.deleteUserById(userId);
+        boolean result = userService.deleteUserById(testUser.getUserId());
 
         assertTrue(result);
-        verify(userRepository).deleteUser(userId);
+        verify(userRepository).deleteUser(testUser.getUserId());
     }
 
     @Test
@@ -169,35 +165,30 @@ public class UserServiceTest {
 
     @Test
     public void testFindUserById() {
-        int userId = 1;
-        User user = new User();
 
-        when(userRepository.findUser(userId)).thenReturn(user);
+        when(userRepository.findUser(testUser.getUserId())).thenReturn(testUser);
 
-        User result = userService.findUserById(userId);
+        User result = userService.findUserById(testUser.getUserId());
 
         assertNotNull(result);
-        verify(userRepository).findUser(userId);
+        verify(userRepository).findUser(testUser.getUserId());
     }
 
     @Test
     public void testCheckUserByMailId_UserFound() {
-        String emailId = "test@example.com";
-        User user = new User();
-        user.setEmailId(emailId);
 
-        when(userRepository.checkUserByEmailid(emailId)).thenReturn(user);
+        when(userRepository.checkUserByEmailid(testUser.getEmailId())).thenReturn(testUser);
 
-        User result = userRepository.checkUserByEmailid(emailId);
+        User result = userRepository.checkUserByEmailid(testUser.getEmailId());
 
         assertNotNull(result);
-        assertEquals(emailId, result.getEmailId());
-        verify(userRepository).checkUserByEmailid(emailId);
+        assertEquals(testUser.getEmailId(), result.getEmailId());
+        verify(userRepository).checkUserByEmailid(testUser.getEmailId());
     }
 
     @Test
     public void testCheckUserByMailId_UserNotFound() {
-        String emailId = "test@example.com";
+        String emailId = "Harish@gmail.com";
 
         when(userRepository.checkUserByEmailid(emailId)).thenReturn(null);
 
@@ -206,11 +197,12 @@ public class UserServiceTest {
         assertNull(result);
         verify(userRepository).checkUserByEmailid(emailId);
     }
+
     @Test
     public void testAuthenticateUser_Failure_InvalidPassword() {
         when(userRepository.checkUserByEmailid(testUser.getEmailId())).thenReturn(testUser);
 
-        boolean result = userService.authenticateUser(testUser.getEmailId(), "wrongPassword", session);
+        boolean result = userService.authenticateUser(testUser.getEmailId(), "Aravind@1", session);
         assertFalse(result);
         verify(session, times(0)).setAttribute("LoginUser", testUser);
     }
@@ -218,8 +210,8 @@ public class UserServiceTest {
     @Test
     public void testUpdateUser_Success() {
 
-        User updatedUser = new User("Arvind Kumar", "newPassword456", "arvind.kumar@southindian.com",
-                "1992-12-10", "Senior Software Engineer", "Admin", 1, "Male");
+        User updatedUser = new User("Arvind Kumar", "Aravind@1", "arvind.kumar@gmail.com",
+                "1992-12-10", "Java Developer", "Admin", 1, "Male");
         when(userRepository.findUser(updatedUser.getUserId())).thenReturn(testUser);
         when(userRepository.findUserByEmailExcludingId(updatedUser.getEmailId(), testUser.getUserId()))
                 .thenReturn(null);
@@ -230,8 +222,8 @@ public class UserServiceTest {
 
     @Test
     public void testUpdateUser_Failure_EmailAlreadyExists() {
-        User updatedUser = new User("Arvind Kumar", "newPassword456", "existing.email@example.com",
-                "1992-12-10", "Senior Software Engineer", "Admin", 1, "Male");
+        User updatedUser = new User("Arvind Kumar", "Aravindh@1", "Aravindh@gmail.com",
+                "1992-12-10", "Java Developer", "Admin", 1, "Male");
         when(userRepository.findUserByEmailExcludingId(updatedUser.getEmailId(), testUser.getUserId()))
                 .thenReturn(testUser);
 
@@ -261,8 +253,7 @@ public class UserServiceTest {
 
     @Test
     public void testPrepareUserPage() {
-        List<User> paginatedUsers = Arrays.asList(
-                new User("John Doe", "password123", "john@example.com", "1990-01-01", "Manager", "Admin", 1, "Male"));
+        List<User> paginatedUsers = Arrays.asList(testUser);
         when(userRepository.fetchUsersWithPagination(0, 10)).thenReturn(paginatedUsers);
         when(userRepository.countTotalUsers()).thenReturn(50);
         userService.prepareUserPage(1, 10, session, model);
@@ -275,36 +266,35 @@ public class UserServiceTest {
     @Test
     public void testPrepareLoginInfoPage() {
         String userId = "1";
-        User user = new User("John Doe", "password123", "john.doe@example.com", "1990-01-01", "Developer", "Admin", 1, "Male");
+        User user = new User("Harish", "Harish@12", "Harish@gmail.com", "1990-01-01", "Developer", "Admin", 1, "Male");
         user.setUserId(1);
-    
+
         int visitCount = 5;
         LocalDateTime loginTime = LocalDateTime.of(2024, 11, 1, 10, 0, 0, 0);
         Login login = new Login();
         login.setLogId(101);
         login.setUser(user);
         login.setLoginInfo(loginTime);
-    
+
         assertEquals(101, login.getLogId());
         assertEquals(user, login.getUser());
         assertEquals(loginTime, login.getLoginInfo());
         assertEquals("10:00:00", login.getFormattedTime());
         assertEquals("01-11-2024", login.getFormattedDate());
-    
+
         List<Login> logins = Arrays.asList(login);
-    
+
         when(userRepository.getLoginInfo(1, 1, 10)).thenReturn(logins);
         when(userRepository.getTotalLoginCount(1)).thenReturn(15);
 
         userService.prepareLoginInfoPage(userId, 1, 10, model);
-    
+
         verify(model, times(1)).addAttribute("userId", 1);
         verify(model, times(1)).addAttribute("Loggedinfo", logins);
         verify(model, times(1)).addAttribute("currentPage", 1);
         verify(model, times(1)).addAttribute("totalPages", 2);
         verify(model, times(1)).addAttribute("totalLogins", 15);
     }
-    
 
     @Test
     public void testPrepareInactiveUsersPage() {
@@ -312,8 +302,7 @@ public class UserServiceTest {
         int pageSize = 10;
         when(session.getAttribute("LoginUser")).thenReturn(loginUser);
 
-        List<User> inactiveUsers = Arrays.asList(new User("Jane Doe", "password123", "jane.doe@example.com",
-                "1992-01-01", "Tester", "User", 0, "Female"));
+        List<User> inactiveUsers = Arrays.asList(loginUser, testUser);
         when(userRepository.findInactiveUsers((pageNumber - 1) * pageSize, pageSize)).thenReturn(inactiveUsers);
         when(userRepository.countInactiveUsers()).thenReturn(25);
 
@@ -327,16 +316,16 @@ public class UserServiceTest {
     @Test
     public void testUpdateUserPassword_Failure() {
         when(session.getAttribute("LoginUser")).thenReturn(loginUser);
-        when(userRepository.checkUserByEmailid("john.doe@example.com")).thenReturn(loginUser);
+        when(userRepository.checkUserByEmailid("siva@gmail.com")).thenReturn(loginUser);
 
-        boolean result = userService.updateUserPassword(session, "wrongOldPassword", "newPassword123");
+        boolean result = userService.updateUserPassword(session, "siva123", "siva@1");
 
         assertFalse(result);
     }
 
     @Test
     public void testUpdateUsers_WhenUserNotFound() {
-        User updateUser = new User("John Doe", "password123", "john.doe@example.com", "1990-01-01", "Developer",
+        User updateUser = new User("Krish", "Krish@1", "krish@gmail.com", "1990-01-01", "Developer",
                 "Admin", 1, "Male");
         int paramId = 1;
 
@@ -351,8 +340,8 @@ public class UserServiceTest {
 
     @Test
     public void testAuthenticateUser_WhenUserNotFoundOrPasswordDoesNotMatch() {
-        String emailId = "john.doe@example.com";
-        String password = "wrongpassword";
+        String emailId = "Harish@google.com";
+        String password = "Harsh@1";
 
         when(userRepository.checkUserByEmailid(emailId)).thenReturn(null);
 
@@ -360,6 +349,83 @@ public class UserServiceTest {
 
         assertFalse(result);
         verify(session, never()).setAttribute(anyString(), any());
+    }
+
+    @Test
+    public void testAuthenticateUser_Success() {
+
+        String emailId = "test@example.com";
+        String password = "password123";
+        User mockUser = new User();
+        mockUser.setEmailId(emailId);
+        mockUser.setPassword("$2a$12$DiSPl3FcQlKWVuFR.2MCMuA7O/bKr.kgrH35w1BB8pGeJoRnbfUVC"); 
+                                                                                              
+
+        when(userRepository.checkUserByEmailid(emailId)).thenReturn(mockUser);
+        when(passwordEncoder.matches(password, mockUser.getPassword())).thenReturn(true);
+
+        boolean result = userService.authenticateUser(emailId, password, session);
+
+        assertTrue(result, "Authentication should succeed for valid credentials");
+        verify(session).setAttribute("LoginUser", mockUser);
+    }
+
+    @Test
+    public void testAuthenticateUser_Failure_UserNotFound() {
+        String emailId = "nonexistent@example.com";
+        String password = "password123";
+
+        when(userRepository.checkUserByEmailid(emailId)).thenReturn(null);
+
+        boolean result = userService.authenticateUser(emailId, password, session);
+
+        assertFalse(result, "Authentication should fail when user is not found");
+        verify(session, never()).setAttribute(anyString(), any());
+    }
+
+    @Test
+    public void testUpdateUserPassword_Failure_OldPasswordMismatch() {
+        String oldPassword = "incorrectOldPassword";
+        String newPassword = "newPassword123";
+        String emailId = "Harish@gmail.com";
+
+        User mockUser = new User();
+        mockUser.setEmailId(emailId);
+        mockUser.setPassword(passwordEncoder.encode("correctOldPassword"));
+
+        HttpSession mockSession = mock(HttpSession.class);
+        when(mockSession.getAttribute("LoginUser")).thenReturn(mockUser);
+
+        when(userRepository.checkUserByEmailid(emailId)).thenReturn(mockUser);
+
+        when(passwordEncoder.matches(oldPassword, mockUser.getPassword())).thenReturn(false);
+        boolean result = userService.updateUserPassword(mockSession, oldPassword, newPassword);
+
+        assertFalse(result, "Password update  failed as old password is incorrect");
+        verify(userRepository, never()).updateUser(any(User.class));
+    }
+
+    @Test
+    public void testUpdateUserPassword_Success() {
+        String oldPassword = "password123";
+        String newPassword = "newPassword123";
+
+        User mockUser = new User();
+        mockUser.setEmailId("Harish@gmail.com");
+        mockUser.setPassword("$2a$12$jQvyjTYCRGAjZnihnbbR9uIPb9jUvmOhUdhFcOI1dm0Xo88q7Ykqe");
+
+        HttpSession mockSession = mock(HttpSession.class);
+        when(mockSession.getAttribute("LoginUser")).thenReturn(mockUser);
+
+        when(passwordEncoder.matches(oldPassword, mockUser.getPassword())).thenReturn(true);
+        when(passwordEncoder.encode(newPassword))
+                .thenReturn("$2a$12$w1HRp64Q1UrkI4i52j8VOOcDMg.APHUcVo6IaqF44J0BmAUAM.3Pi");
+
+        when(userRepository.checkUserByEmailid(mockUser.getEmailId())).thenReturn(mockUser);
+
+        boolean result = userService.updateUserPassword(mockSession, oldPassword, newPassword);
+        assertTrue(result);
+        verify(userRepository).updateUser(mockUser);
     }
 
 }
