@@ -1,90 +1,55 @@
-2024-11-18 18:05:20 [Catalina-utility-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'RequestServlet'
-2024-11-18 18:05:28 [Catalina-utility-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7466 ms
-2024-11-18 18:05:32 [http-nio-8080-exec-297] INFO  com.task.Controller.UserController - User requesting Home page!
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Nikitha@gmail.com
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Nikitha@gmail.com
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Service.UserService - Checking user with emailId: Nikitha@gmail.com
-2024-11-18 18:05:43 [http-nio-8080-exec-294] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Service.UserService - Updating credentials for user with emailId: Nikitha@gmail.com
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Repository.UserRepository - Successfully saved login information: Login{id=155, loginDate=2024-11-18T18:05:43.653064400}
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Service.UserService - Credentials updated for user with emailId: Nikitha@gmail.com
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Service.UserService - User with emailId: Nikitha@gmail.com authenticated successfully
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Controller.UserController - User authenticated succesfully: Nikitha@gmail.com
-2024-11-18 18:05:43 [http-nio-8080-exec-294] INFO  com.task.Controller.UserController - Redirecting user to /users
-2024-11-18 18:05:43 [http-nio-8080-exec-295] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
-2024-11-18 18:05:43 [http-nio-8080-exec-295] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:05:43 [http-nio-8080-exec-295] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:05:43 [http-nio-8080-exec-295] INFO  com.task.Service.UserService - User page prepared with total users: 13 and total pages: 2
-2024-11-18 18:05:43 [http-nio-8080-exec-295] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
-2024-11-18 18:05:49 [http-nio-8080-exec-293] INFO  com.task.Controller.UserController - User requesting for change password page
-2024-11-18 18:06:02 [http-nio-8080-exec-304] INFO  com.task.Controller.UserController - Received password change request for user with session ID: 3E05F5E83F70006B486918CCCE79ADCC
-2024-11-18 18:06:02 [http-nio-8080-exec-304] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Nikitha@gmail.com
-2024-11-18 18:06:02 [http-nio-8080-exec-304] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:06:02 [http-nio-8080-exec-304] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: Nikitha@gmail.com
-2024-11-18 18:06:02 [http-nio-8080-exec-304] WARN  com.task.Controller.UserController - Failed to update password for user with session ID: 3E05F5E83F70006B486918CCCE79ADCC
-2024-11-18 18:06:34 [http-nio-8080-exec-307] INFO  com.task.Controller.UserController - Received password change request for user with session ID: 3E05F5E83F70006B486918CCCE79ADCC
-2024-11-18 18:06:34 [http-nio-8080-exec-307] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Nikitha@gmail.com
-2024-11-18 18:06:34 [http-nio-8080-exec-307] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:06:34 [http-nio-8080-exec-307] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: Nikitha@gmail.com
-2024-11-18 18:06:34 [http-nio-8080-exec-307] WARN  com.task.Controller.UserController - Failed to update password for user with session ID: 3E05F5E83F70006B486918CCCE79ADCC
-2024-11-18 18:06:38 [http-nio-8080-exec-302] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
-2024-11-18 18:06:38 [http-nio-8080-exec-302] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:06:38 [http-nio-8080-exec-302] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:06:38 [http-nio-8080-exec-302] INFO  com.task.Service.UserService - User page prepared with total users: 13 and total pages: 2
-2024-11-18 18:06:38 [http-nio-8080-exec-302] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
-2024-11-18 18:06:39 [http-nio-8080-exec-295] INFO  com.task.Controller.UserController - User requesting for change password page
-2024-11-18 18:06:53 [http-nio-8080-exec-308] INFO  com.task.Controller.UserController - Received password change request for user with session ID: 3E05F5E83F70006B486918CCCE79ADCC
-2024-11-18 18:06:53 [http-nio-8080-exec-308] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Nikitha@gmail.com
-2024-11-18 18:06:53 [http-nio-8080-exec-308] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:06:53 [http-nio-8080-exec-308] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: Nikitha@gmail.com
-2024-11-18 18:06:53 [http-nio-8080-exec-308] WARN  com.task.Controller.UserController - Failed to update password for user with session ID: 3E05F5E83F70006B486918CCCE79ADCC
-2024-11-18 18:07:14 [http-nio-8080-exec-306] INFO  com.task.Controller.UserController - User requesting Home page!
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Nikitha@gmail.com
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Nikitha@gmail.com
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Service.UserService - Checking user with emailId: Nikitha@gmail.com
-2024-11-18 18:07:27 [http-nio-8080-exec-310] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Service.UserService - Updating credentials for user with emailId: Nikitha@gmail.com
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Repository.UserRepository - Successfully saved login information: Login{id=156, loginDate=2024-11-18T18:07:27.879944100}
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Service.UserService - Credentials updated for user with emailId: Nikitha@gmail.com
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Service.UserService - User with emailId: Nikitha@gmail.com authenticated successfully
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Controller.UserController - User authenticated succesfully: Nikitha@gmail.com
-2024-11-18 18:07:27 [http-nio-8080-exec-310] INFO  com.task.Controller.UserController - Redirecting user to /users
-2024-11-18 18:07:27 [http-nio-8080-exec-301] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
-2024-11-18 18:07:27 [http-nio-8080-exec-301] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:07:27 [http-nio-8080-exec-301] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:07:27 [http-nio-8080-exec-301] INFO  com.task.Service.UserService - User page prepared with total users: 13 and total pages: 2
-2024-11-18 18:07:27 [http-nio-8080-exec-301] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
-2024-11-18 18:07:32 [http-nio-8080-exec-303] INFO  com.task.Controller.UserController - User requesting for change password page
-2024-11-18 18:08:03 [http-nio-8080-exec-306] INFO  com.task.Controller.UserController - Received password change request for user with session ID: F754DBFAE99CF7562C7FCBFA59A2F24C
-2024-11-18 18:08:03 [http-nio-8080-exec-306] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Nikitha@gmail.com
-2024-11-18 18:08:03 [http-nio-8080-exec-306] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:08:03 [http-nio-8080-exec-306] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: Nikitha@gmail.com
-2024-11-18 18:08:03 [http-nio-8080-exec-306] WARN  com.task.Controller.UserController - Failed to update password for user with session ID: F754DBFAE99CF7562C7FCBFA59A2F24C
-2024-11-18 18:08:42 [http-nio-8080-exec-303] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
-2024-11-18 18:08:42 [http-nio-8080-exec-303] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:08:42 [http-nio-8080-exec-303] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:08:42 [http-nio-8080-exec-303] INFO  com.task.Service.UserService - User page prepared with total users: 13 and total pages: 2
-2024-11-18 18:08:42 [http-nio-8080-exec-303] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
-2024-11-18 18:08:43 [http-nio-8080-exec-304] INFO  com.task.Controller.UserController - User requesting for change password page
-2024-11-18 18:08:57 [http-nio-8080-exec-307] INFO  com.task.Controller.UserController - User requesting Home page!
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Harish@gmail.com
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Harish@gmail.com
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Service.UserService - Checking user with emailId: Harish@gmail.com
-2024-11-18 18:09:04 [http-nio-8080-exec-312] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Service.UserService - Updating credentials for user with emailId: Harish@gmail.com
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Repository.UserRepository - Successfully saved login information: Login{id=157, loginDate=2024-11-18T18:09:04.157766500}
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Service.UserService - Credentials updated for user with emailId: Harish@gmail.com
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Service.UserService - User with emailId: Harish@gmail.com authenticated successfully
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Controller.UserController - User authenticated succesfully: Harish@gmail.com
-2024-11-18 18:09:04 [http-nio-8080-exec-312] INFO  com.task.Controller.UserController - Redirecting user to /users
-2024-11-18 18:09:04 [http-nio-8080-exec-303] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
-2024-11-18 18:09:04 [http-nio-8080-exec-303] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:09:04 [http-nio-8080-exec-303] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:09:04 [http-nio-8080-exec-303] INFO  com.task.Service.UserService - User page prepared with total users: 13 and total pages: 2
-2024-11-18 18:09:04 [http-nio-8080-exec-303] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
-2024-11-18 18:09:06 [http-nio-8080-exec-308] INFO  com.task.Controller.UserController - User requesting for change password page
-2024-11-18 18:09:21 [http-nio-8080-exec-304] INFO  com.task.Controller.UserController - Received password change request for user with session ID: F754DBFAE99CF7562C7FCBFA59A2F24C
-2024-11-18 18:09:21 [http-nio-8080-exec-304] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Harish@gmail.com
-2024-11-18 18:09:21 [http-nio-8080-exec-304] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
-2024-11-18 18:09:21 [http-nio-8080-exec-304] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: Harish@gmail.com
-2024-11-18 18:09:21 [http-nio-8080-exec-304] WARN  com.task.Controller.UserController - Failed to update password for user with session ID: F754DBFAE99CF7562C7FCBFA59A2F24C
+2024-11-19 17:01:03 [Catalina-utility-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'RequestServlet'
+2024-11-19 17:01:07 [Catalina-utility-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3958 ms
+2024-11-19 17:01:12 [http-nio-8080-exec-127] INFO  com.task.Controller.UserController - User requesting Home page!
+2024-11-19 17:01:13 [http-nio-8080-exec-131] INFO  com.task.Controller.UserController - User requesting Home page!
+2024-11-19 17:01:21 [http-nio-8080-exec-128] INFO  com.task.Controller.UserController - User requesting Home page!
+2024-11-19 17:02:14 [http-nio-8080-exec-135] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Harish@gmail.com
+2024-11-19 17:02:14 [http-nio-8080-exec-135] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Harish@gmail.com
+2024-11-19 17:02:14 [http-nio-8080-exec-135] INFO  com.task.Service.UserService - Checking user with emailId: Harish@gmail.com
+2024-11-19 17:02:15 [http-nio-8080-exec-135] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:15 [http-nio-8080-exec-135] WARN  com.task.Service.UserService - Authentication failed for user with emailId: Harish@gmail.com
+2024-11-19 17:02:15 [http-nio-8080-exec-135] WARN  com.task.Controller.UserController - Authentication failed for user with Email Id:Harish@gmail.com
+2024-11-19 17:02:15 [http-nio-8080-exec-135] INFO  com.task.Controller.UserController - Redirecting user to /
+2024-11-19 17:02:15 [http-nio-8080-exec-136] INFO  com.task.Controller.UserController - User requesting Home page!
+2024-11-19 17:02:22 [http-nio-8080-exec-133] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Kavya@gmail.com
+2024-11-19 17:02:22 [http-nio-8080-exec-133] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Kavya@gmail.com
+2024-11-19 17:02:22 [http-nio-8080-exec-133] INFO  com.task.Service.UserService - Checking user with emailId: Kavya@gmail.com
+2024-11-19 17:02:22 [http-nio-8080-exec-133] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:23 [http-nio-8080-exec-133] INFO  com.task.Service.UserService - Updating credentials for user with emailId: Kavya@gmail.com
+2024-11-19 17:02:23 [http-nio-8080-exec-133] INFO  com.task.Repository.UserRepository - Successfully saved login information: Login{id=173, loginDate=2024-11-19T17:02:23.125119400}
+2024-11-19 17:02:23 [http-nio-8080-exec-133] INFO  com.task.Service.UserService - Credentials updated for user with emailId: Kavya@gmail.com
+2024-11-19 17:02:23 [http-nio-8080-exec-133] INFO  com.task.Service.UserService - User with emailId: Kavya@gmail.com authenticated successfully
+2024-11-19 17:02:23 [http-nio-8080-exec-133] INFO  com.task.Controller.UserController - User authenticated succesfully: Kavya@gmail.com
+2024-11-19 17:02:23 [http-nio-8080-exec-133] INFO  com.task.Controller.UserController - Redirecting user to /users
+2024-11-19 17:02:23 [http-nio-8080-exec-137] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
+2024-11-19 17:02:23 [http-nio-8080-exec-137] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:23 [http-nio-8080-exec-137] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:23 [http-nio-8080-exec-137] INFO  com.task.Service.UserService - User page prepared with total users: 11 and total pages: 2
+2024-11-19 17:02:23 [http-nio-8080-exec-137] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
+2024-11-19 17:02:36 [http-nio-8080-exec-138] INFO  com.task.Controller.UserController - Request to view info for user with ID: 2 (Page: 1, Page Size: 10)
+2024-11-19 17:02:36 [http-nio-8080-exec-138] INFO  com.task.Service.UserService - Preparing login info page for userId: 2 (Page: 1, Size: 10)
+2024-11-19 17:02:36 [http-nio-8080-exec-138] INFO  com.task.Repository.UserRepository - Trying to get login Info
+2024-11-19 17:02:36 [http-nio-8080-exec-138] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:36 [http-nio-8080-exec-138] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:2
+2024-11-19 17:02:36 [http-nio-8080-exec-138] INFO  com.task.Repository.UserRepository - Attempting to fetch Login Counts of user with ID:
+2024-11-19 17:02:36 [http-nio-8080-exec-138] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:36 [http-nio-8080-exec-138] INFO  com.task.Service.UserService - Login info page prepared for userId: 2 with total logins: 4 and total pages: 1
+2024-11-19 17:02:36 [http-nio-8080-exec-138] INFO  com.task.Controller.UserController - Returning LoginInfo page for user with ID: 2
+2024-11-19 17:02:42 [http-nio-8080-exec-130] INFO  com.task.Controller.UserController - Request to view info for user with ID: 2 (Page: 1, Page Size: 10)
+2024-11-19 17:02:42 [http-nio-8080-exec-139] INFO  com.task.Controller.UserController - User requesting Home page!
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Nikitha@gmail.com
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Nikitha@gmail.com
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Service.UserService - Checking user with emailId: Nikitha@gmail.com
+2024-11-19 17:02:58 [http-nio-8080-exec-141] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Service.UserService - Updating credentials for user with emailId: Nikitha@gmail.com
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Repository.UserRepository - Successfully saved login information: Login{id=174, loginDate=2024-11-19T17:02:58.173225200}
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Service.UserService - Credentials updated for user with emailId: Nikitha@gmail.com
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Service.UserService - User with emailId: Nikitha@gmail.com authenticated successfully
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Controller.UserController - User authenticated succesfully: Nikitha@gmail.com
+2024-11-19 17:02:58 [http-nio-8080-exec-141] INFO  com.task.Controller.UserController - Redirecting user to /users
+2024-11-19 17:02:58 [http-nio-8080-exec-142] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
+2024-11-19 17:02:58 [http-nio-8080-exec-142] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:58 [http-nio-8080-exec-142] WARN  org.hibernate.orm.deprecation - HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2024-11-19 17:02:58 [http-nio-8080-exec-142] INFO  com.task.Service.UserService - User page prepared with total users: 11 and total pages: 2
+2024-11-19 17:02:58 [http-nio-8080-exec-142] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
+2024-11-19 17:06:05 [http-nio-8080-exec-139] INFO  com.task.Controller.UserController - User requesting Home page!

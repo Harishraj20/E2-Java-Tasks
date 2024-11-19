@@ -2,6 +2,7 @@ package com.task.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -60,10 +61,11 @@ public class UserService {
        
         int totalPages = (int) Math.ceil((double) totalUsers / pageSize);
 
-        model.addAttribute("UserList", paginatedUsers);
-        model.addAttribute("currentPage", pageNumber);
-        model.addAttribute("totalPages", totalPages);
-
+        model.addAllAttributes(Map.of(
+            "UserList", paginatedUsers,
+            "currentPage", pageNumber,
+            "totalPages", totalPages
+        ));
         logger.info("User page prepared with total users: {} and total pages: {}", totalUsers, totalPages);
     }
 
@@ -165,12 +167,13 @@ public class UserService {
 
         int totalPages = (int) Math.ceil((double) totalLogins / pageSize);
 
-        model.addAttribute("userId", user_id);
-        model.addAttribute("Loggedinfo", logins);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", totalPages);
-        model.addAttribute("totalLogins", totalLogins);
-
+        model.addAllAttributes(Map.of(
+            "userId", user_id,
+            "Loggedinfo", logins,
+            "currentPage", page,
+            "totalPages", totalPages,
+            "totalLogins", totalLogins
+        ));
         logger.info("Login info page prepared for userId: {} with total logins: {} and total pages: {}", user_id,
                 totalLogins, totalPages);
     }
@@ -189,12 +192,13 @@ public class UserService {
 
         int totalPages = (int) Math.ceil((double) totalInactiveUsers / pageSize);
 
-        model.addAttribute("UserList", paginatedInactiveUsers);
-        model.addAttribute("currentPage", pageNumber);
-        model.addAttribute("totalPages", totalPages);
-        model.addAttribute("inactiveUserCount", totalInactiveUsers);
-        model.addAttribute("empId", loginUser.getEmployeeId());
-
+        model.addAllAttributes(Map.of(
+        "UserList", paginatedInactiveUsers,
+        "currentPage", pageNumber,
+        "totalPages", totalPages,
+        "inactiveUserCount", totalInactiveUsers,
+        "empId", loginUser.getEmployeeId()
+        ));
         logger.info("Inactive users page prepared with total inactive users: {} and total pages: {}",
                 totalInactiveUsers, totalPages);
     }

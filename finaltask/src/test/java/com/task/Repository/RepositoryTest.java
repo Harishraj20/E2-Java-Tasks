@@ -1,37 +1,5 @@
 package com.task.Repository;
 
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.Assert.assertFalse;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
-
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
-
-import com.task.Model.Login;
-import com.task.Model.User;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +7,38 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import org.junit.runner.RunWith;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+import com.task.Model.Login;
+import com.task.Model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
@@ -54,10 +54,8 @@ public class RepositoryTest {
     @Mock
     private Criteria criteria;
     private User testUser;
-    private  Login login;
-    private  User loginUser;
-    private Query<Login> query = mock(Query.class);
-    Query<Long> mockQuery = mock(Query.class);
+    private Login login;
+    private User loginUser;
 
     @InjectMocks
     private UserRepository userRepository;
@@ -68,27 +66,25 @@ public class RepositoryTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         testUser = new User("Arvind Kumar", "Aravind@1", "arvind.kumar@gmail.com",
-        "1992-12-10", "Software Engineer", "Admin", 1, "Male");
+                "1992-12-10", "Software Engineer", "Admin", 1, "Male");
 
         loginUser = new User("Siva", "siva123", "siva@gmail.com", "1990-01-01", "Developer", "Admin", 1,
                 "Male");
 
-          LocalDateTime loginTime = LocalDateTime.now();
+        LocalDateTime loginTime = LocalDateTime.now();
 
-         login = new Login(testUser, 5, loginTime);
-         login.setUser(testUser);
-         login.getUser();
-         testUser.getLoginStatus();
-         LocalDateTime loginTime1 = LocalDateTime.now().minusDays(1);
-         LocalDateTime loginTime2 = LocalDateTime.now();
- 
-          Set<Login> logins = new HashSet<>();
+        login = new Login(testUser, 5, loginTime);
+        login.setUser(testUser);
+        login.getUser();
+        testUser.getLoginStatus();
+        LocalDateTime loginTime1 = LocalDateTime.now().minusDays(1);
+        LocalDateTime loginTime2 = LocalDateTime.now();
+
+        Set<Login> logins = new HashSet<>();
         logins.add(new Login(testUser, 1, loginTime1));
         logins.add(new Login(testUser, 2, loginTime2));
         testUser.setLogins(logins);
         testUser.getLogins();
-
-
 
         when(sessionFactory.getCurrentSession()).thenReturn(session);
         when(session.createCriteria(User.class)).thenReturn(criteria);
@@ -98,13 +94,12 @@ public class RepositoryTest {
         when(criteria.setFirstResult(offset)).thenReturn(criteria);
         when(criteria.setMaxResults(pageSize)).thenReturn(criteria);
         when(criteria.setProjection(Projections.rowCount())).thenReturn(criteria);
-        when(session.createQuery("SELECT COUNT(l) FROM Login l WHERE l.user.userId = :userId", Long.class))
-                .thenReturn(mockQuery);
-        when(session.createQuery("FROM Login l WHERE l.user.userId = :userId", Login.class))
-                .thenReturn(query);
+        when(session.createCriteria(Login.class)).thenReturn(criteria);
+        when(criteria.createAlias("user", "u")).thenReturn(criteria);
 
     }
-     @Test
+
+    @Test
     public void testSaveLoginInfo_Success() {
         userRepository.saveLoginInfo(login);
 
@@ -130,10 +125,9 @@ public class RepositoryTest {
         verify(sessionFactory, times(1)).getCurrentSession();
     }
 
-
     @Test
     public void testAddUserInfo_Success() {
-       
+
         when(session.save(testUser)).thenReturn(1);
         boolean result = userRepository.addUserInfo(testUser);
         verify(session, times(1)).save(testUser);
@@ -142,7 +136,6 @@ public class RepositoryTest {
 
     @Test
     public void testAddUserInfo_runtimeexception() {
-       
 
         doThrow(new RuntimeException("Exception")).when(session).save(testUser);
         boolean result = userRepository.addUserInfo(testUser);
@@ -152,7 +145,6 @@ public class RepositoryTest {
 
     @Test
     public void testAddUserInfo_HibernateException() {
-      
 
         doThrow(new HibernateException("Exception")).when(session).save(testUser);
         boolean result = userRepository.addUserInfo(testUser);
@@ -162,7 +154,7 @@ public class RepositoryTest {
 
     @Test
     public void checkUserByEmailid_shouldReturnUser_whenUserExists() {
-    
+
         when(criteria.uniqueResult()).thenReturn(testUser);
         User result = userRepository.checkUserByEmailid(testUser.getEmailId());
         assertNotNull(result);
@@ -192,7 +184,7 @@ public class RepositoryTest {
     @Test
     public void checkUserByEmailid_shouldReturnNull_whenGenericException() {
         String emailId = "Harish@gmail.com";
-        when(criteria.add(any())).thenThrow(new RuntimeException("Unexpected Error"));
+        when(criteria.add(any())).thenThrow(new RuntimeException());
         User result = userRepository.checkUserByEmailid(emailId);
         assertNull(result);
     }
@@ -222,7 +214,8 @@ public class RepositoryTest {
         verify(session, times(1)).get(User.class, userId);
         verify(session, times(0)).delete(any());
     }
-     @Test
+
+    @Test
     public void testDeleteUser_HibernateException() {
         int userId = 1;
         when(session.get(User.class, userId)).thenThrow(new HibernateException("Mock HibernateException"));
@@ -238,9 +231,7 @@ public class RepositoryTest {
 
         assertDoesNotThrow(() -> userRepository.deleteUser(userId));
 
-      
     }
-    
 
     @Test
     public void countInactiveUsers() {
@@ -307,12 +298,8 @@ public class RepositoryTest {
         int userId = 12;
         long expectedCount = 5L;
 
-        Query<Long> mockQuery = mock(Query.class);
-        when(session.createQuery("SELECT COUNT(l) FROM Login l WHERE l.user.userId = :userId", Long.class))
-                .thenReturn(mockQuery);
-        when(mockQuery.setParameter("userId", userId)).thenReturn(mockQuery);
-        when(mockQuery.uniqueResult()).thenReturn(expectedCount);
-
+        when(session.createCriteria(Login.class)).thenReturn(criteria);
+        when(criteria.uniqueResult()).thenReturn(expectedCount);
         int result = userRepository.getTotalLoginCount(userId);
         assertEquals(5, result);
     }
@@ -321,9 +308,7 @@ public class RepositoryTest {
     public void getTotalLoginCount_shouldReturnZero_whenNoLogins() {
         int userId = 5;
         Long expectedCount = null;
-        when(mockQuery.setParameter("userId", userId)).thenReturn(mockQuery);
-        when(mockQuery.uniqueResult()).thenReturn(expectedCount);
-
+        when(criteria.uniqueResult()).thenReturn(expectedCount);
         int result = userRepository.getTotalLoginCount(userId);
 
         assertEquals(0, result);
@@ -332,9 +317,7 @@ public class RepositoryTest {
     @Test
     public void getTotalLoginCount_shouldHandleHibernateException() {
         int userId = 5;
-        when(mockQuery.setParameter("userId", userId)).thenReturn(mockQuery);
-
-        when(mockQuery.uniqueResult()).thenThrow(new HibernateException("Test Exception"));
+        when(criteria.uniqueResult()).thenThrow(new HibernateException("Test Exception"));
         int result = userRepository.getTotalLoginCount(userId);
         assertEquals(0, result);
     }
@@ -343,9 +326,7 @@ public class RepositoryTest {
     public void countTotalUsers_shouldReturnTotalCount_whenUsersExist() {
         long expectedCount = 3;
         when(criteria.uniqueResult()).thenReturn(expectedCount);
-
         int result = userRepository.countTotalUsers();
-
         assertEquals(3, result);
     }
 
@@ -353,15 +334,14 @@ public class RepositoryTest {
     public void countTotalUsers_shouldHandleHibernateException() {
 
         when(criteria.uniqueResult()).thenThrow(new HibernateException("Test Exception"));
-
         int result = userRepository.countTotalUsers();
         assertEquals(0, result);
     }
+
     @Test
     public void countTotalUsers_shouldHandleException() {
 
         when(criteria.uniqueResult()).thenThrow(new RuntimeException("Test Generic Exception"));
-
         int result = userRepository.countTotalUsers();
         assertEquals(0, result);
     }
@@ -374,7 +354,6 @@ public class RepositoryTest {
 
         when(session.get(User.class, userId)).thenReturn(mockUser);
         User result = userRepository.findUser(userId);
-
         assertNotNull(result);
         assertEquals(userId, result.getUserId());
     }
@@ -384,7 +363,6 @@ public class RepositoryTest {
         int userId = 999;
 
         when(session.get(User.class, userId)).thenReturn(null);
-
         User result = userRepository.findUser(userId);
         assertNull(result);
     }
@@ -394,9 +372,7 @@ public class RepositoryTest {
         int userId = 1;
 
         when(session.get(User.class, userId)).thenThrow(new HibernateException("Database error"));
-
         User result = userRepository.findUser(userId);
-
         assertNull(result);
     }
 
@@ -404,10 +380,8 @@ public class RepositoryTest {
     public void findUser_shouldHandleGenericException() {
         int userId = 1;
 
-        when(session.get(User.class, userId)).thenThrow(new RuntimeException("Unexpected error"));
-
+        when(session.get(User.class, userId)).thenThrow(new RuntimeException());
         User result = userRepository.findUser(userId);
-
         assertNull(result);
 
     }
@@ -416,12 +390,10 @@ public class RepositoryTest {
     public void getLoginInfo_shouldReturnList_whenValidUserId() {
         int userId = 1;
         int page = 1;
-        int pageSize = 10;
 
         List<Login> mockLoginList = Arrays.asList(new Login(), new Login());
-        when(query.setParameter("userId", userId)).thenReturn(query);
-        when(query.setFirstResult((page - 1) * pageSize)).thenReturn(query);
-        when(query.list()).thenReturn(mockLoginList);
+        when(criteria.setFirstResult((page - 1) * pageSize)).thenReturn(criteria);
+        when(criteria.list()).thenReturn(mockLoginList);
 
         List<Login> result = userRepository.getLoginInfo(userId, page, pageSize);
 
@@ -433,10 +405,8 @@ public class RepositoryTest {
     public void getLoginInfo_shouldReturnEmptyList_whenNoLogins() {
         int userId = 1;
         int page = 1;
-        int pageSize = 10;
-        when(query.setParameter("userId", userId)).thenReturn(query);
-        when(query.setMaxResults(pageSize)).thenReturn(query);
-        when(query.list()).thenReturn(Collections.emptyList());
+        when(criteria.setMaxResults(pageSize)).thenReturn(criteria);
+        when(criteria.list()).thenReturn(Collections.emptyList());
 
         List<Login> result = userRepository.getLoginInfo(userId, page, pageSize);
 
@@ -448,12 +418,10 @@ public class RepositoryTest {
     public void getLoginInfo_shouldHandleHibernateException() {
         int userId = 1;
         int page = 1;
-        int pageSize = 10;
 
-        when(query.setParameter("userId", userId)).thenReturn(query);
-        when(query.setFirstResult((page - 1) * pageSize)).thenReturn(query);
-        when(query.setMaxResults(pageSize)).thenReturn(query);
-        when(query.list()).thenThrow(new HibernateException("Database error"));
+        when(criteria.setFirstResult((page - 1) * pageSize)).thenReturn(criteria);
+        when(criteria.setMaxResults(pageSize)).thenReturn(criteria);
+        when(criteria.list()).thenThrow(new HibernateException("Database error"));
 
         List<Login> result = userRepository.getLoginInfo(userId, page, pageSize);
 
@@ -462,20 +430,15 @@ public class RepositoryTest {
     }
 
     @Test
-    public void getLoginInfo_shouldReturnEmptyList_whenInvalidPageSize() {
+    public void getLoginInfo_shouldHandleGeneralException() {
         int userId = 1;
         int page = 1;
-        int pageSize = 0;
-
-        when(query.setParameter("userId", userId)).thenReturn(query);
-        when(query.setFirstResult((page - 1) * pageSize)).thenReturn(query);
-        when(query.setMaxResults(pageSize)).thenReturn(query);
-        when(query.list()).thenReturn(Collections.emptyList());
+        when(criteria.setFirstResult((page - 1) * pageSize)).thenReturn(criteria);
+        when(criteria.setMaxResults(pageSize)).thenReturn(criteria);
+        when(criteria.list()).thenThrow(new RuntimeException());
 
         List<Login> result = userRepository.getLoginInfo(userId, page, pageSize);
-
-        assertNotNull(result);
-        assertTrue(result.isEmpty());
+        assertNull(result);
 
     }
 
@@ -483,12 +446,10 @@ public class RepositoryTest {
     public void getLoginInfo_shouldReturnResultsWithPagination() {
         int userId = 1;
         int page = 2;
-        int pageSize = 10;
-
         List<Login> mockLoginList = Arrays.asList(new Login(), new Login());
-        when(query.setFirstResult((page - 1) * pageSize)).thenReturn(query);
-        when(query.setMaxResults(pageSize)).thenReturn(query);
-        when(query.list()).thenReturn(mockLoginList);
+        when(criteria.setFirstResult((page - 1) * pageSize)).thenReturn(criteria);
+        when(criteria.setMaxResults(pageSize)).thenReturn(criteria);
+        when(criteria.list()).thenReturn(mockLoginList);
 
         List<Login> result = userRepository.getLoginInfo(userId, page, pageSize);
         assertNotNull(result);
@@ -554,7 +515,6 @@ public class RepositoryTest {
 
     @Test
     public void updateUser_shouldHandleHibernateException() {
-       
 
         doThrow(new HibernateException("Database error")).when(session).update(loginUser);
 
@@ -565,8 +525,8 @@ public class RepositoryTest {
 
     @Test
     public void updateUser_shouldHandleException() {
-        
-        doThrow(new RuntimeException("Unexpected error")).when(session).update(testUser);
+
+        doThrow(new RuntimeException()).when(session).update(testUser);
 
         userRepository.updateUser(testUser);
         verify(session).update(testUser);
@@ -574,8 +534,6 @@ public class RepositoryTest {
 
     @Test
     public void fetchUsersWithPagination_shouldReturnList_whenUsersExist() {
-        int offset = 0;
-        int pageSize = 10;
         List<User> mockUserList = Arrays.asList(new User(), new User());
         when(criteria.list()).thenReturn(mockUserList);
         List<User> result = userRepository.fetchUsersWithPagination(offset, pageSize);
@@ -585,8 +543,6 @@ public class RepositoryTest {
 
     @Test
     public void fetchUsersWithPagination_shouldReturnEmptyList_whenNoUsersFound() {
-        List<User> mockUserList = Arrays.asList();
-
         List<User> result = userRepository.fetchUsersWithPagination(offset, pageSize);
         assertNotNull(result);
         assertTrue(result.isEmpty());

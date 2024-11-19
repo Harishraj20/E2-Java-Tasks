@@ -64,7 +64,6 @@ public class CrudController {
         service.deleteUserById(user_id);
 
         logger.info("Redirecting to user page after deleting the user...");
-
         return "redirect:/users";
     }
 
@@ -104,12 +103,9 @@ public class CrudController {
         boolean isUpdated = service.updateUsers(updateUser, Integer.parseInt(refUserID));
 
         if (isUpdated) {
-            
-            logger.info("User with ID: {} updated successfully", refUserID);
-
             session.setAttribute("LoginUser", service.findUserById(Integer.parseInt(refUserID)));
             model.addAttribute("Message", "User updated successfully!");
-
+            logger.info("User with ID: {} updated successfully", refUserID);
             return "message";
         } else {
             logger.warn("Failed to update user with ID: {}. Mail ID may be in use.", refUserID);

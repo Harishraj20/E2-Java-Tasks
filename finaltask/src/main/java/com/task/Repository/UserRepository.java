@@ -59,7 +59,6 @@ public class UserRepository {
         } catch (HibernateException e) {
 
             logger.error("Hibernate Exception when checking user with Mail Id:{}", emailId);
-
             return null;
         } catch (Exception e) {
             logger.error("Exception when checking user with Mail Id:{}", emailId);
@@ -84,20 +83,31 @@ public class UserRepository {
     public List<Login> getLoginInfo(int userId, int page, int pageSize) {
         try {
             logger.info("Trying to get login Info");
-
+    
             Session session = sessionFactory.getCurrentSession();
-            Query<Login> query = session.createQuery("FROM Login l WHERE l.user.userId = :userId", Login.class);
-            query.setParameter("userId", userId);
-            query.setFirstResult((page - 1) * pageSize);
-            query.setMaxResults(pageSize);
-            logger.info("fetched Login info Successfully for user:{}", userId);
+            Criteria criteria = session.createCriteria(Login.class);
+    
+            criteria.createAlias("user", "u");
+            
+            criteria.add(Restrictions.eq("u.userId", userId));
+    
+            criteria.setFirstResult((page - 1) * pageSize);
+            criteria.setMaxResults(pageSize);
+    
+            logger.info("Fetched Login info successfully for user:{}", userId);
+    
+            return criteria.list();
 
-            return query.list();
         } catch (HibernateException e) {
             logger.error("Hibernate Exception in getLoginInfo method");
             return null;
+        }catch (Exception e) {
+            logger.error("Exception in getLoginInfo method");
+            return null;
         }
+
     }
+    
 
     //Total Login Counts for Pagination
     public int getTotalLoginCount(int userId) {
@@ -106,10 +116,13 @@ public class UserRepository {
             logger.info("Attempting to fetch Login Counts of user with ID:", userId);
 
             Session session = sessionFactory.getCurrentSession();
-            Query<Long> query = session.createQuery("SELECT COUNT(l) FROM Login l WHERE l.user.userId = :userId",
-                    Long.class);
-            query.setParameter("userId", userId);
-            Long count = query.uniqueResult();
+            Criteria criteria = session.createCriteria(Login.class);
+            criteria.createAlias("user", "u");
+            criteria.add(Restrictions.eq("u.userId", userId));
+        
+            criteria.setProjection(Projections.rowCount());
+            
+            Long count = (Long) criteria.uniqueResult();
             return count != null ? count.intValue() : 0;
         } catch (HibernateException e) {
             logger.error("Hibernate exception in getLoginCount Method for user Id:{}", userId);

@@ -56,13 +56,5 @@ public class Login {
     @Override
     public String toString() {
         return "Login{id=" + logId + ", loginDate=" + loginInfo + "}";
-    }
-    
-
-    
-
-
-
-
-    
+    } 
 }

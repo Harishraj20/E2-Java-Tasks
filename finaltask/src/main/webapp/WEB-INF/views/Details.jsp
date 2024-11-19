@@ -16,7 +16,6 @@
     />
   </head>
   <body>
-
     <c:set var="loggedInUser" value="${sessionScope.LoginUser}" />
 
     <div class="user-details">
@@ -48,11 +47,6 @@
         <button class="add-btn">Change password</button>
       </form>
     </div>
-    
-    
-    
-    
-
     <div class="table-container">
       <table border="1">
         <thead>
@@ -78,7 +72,6 @@
               <div class="action-holder">
                 <form action="/finaltask/users/viewInfo" method="get">
                   <input type="hidden" name="userId" value="${loggedInUser.userId}">
-                  <input type="hidden" name="employeeId" value="${loggedInUser.employeeId}">
                   <button class="btn view-btn">View</button>
                 </form>
                 <form action="/finaltask/users/updateform" method="get">
@@ -102,7 +95,6 @@
                   <div class="action-holder">
                     <form action="/finaltask/users/viewInfo" method="get">
                       <input type="hidden" name="userId" value="${user.userId}">
-                      <input type="hidden" name="employeeId" value="${user.employeeId}">
                       <button class="btn view-btn">View</button>
                     </form>
                     <c:choose>
@@ -113,7 +105,6 @@
                           onsubmit="return confirm('Are you sure you want to delete the employee with id: ${user.employeeId}?');"
                         >
                           <input type="hidden" name="userId" value="${user.userId}">
-                          <input type="hidden" name="employeeId" value="${user.employeeId}">
                           <button class="btn delete-btn">Delete</button>
                         </form>
                       </c:when>

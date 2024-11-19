@@ -1,28 +1,36 @@
 package com.task.Service;
 
-import static org.junit.Assert.*;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import org.junit.Before;
+import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 
 import com.task.Model.Login;
 import com.task.Model.User;
 import com.task.Repository.UserRepository;
-
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
 
 public class UserServiceTest {
 
@@ -354,7 +362,7 @@ public class UserServiceTest {
     @Test
     public void testAuthenticateUser_Success() {
 
-        String emailId = "test@example.com";
+        String emailId = "harish@gmail.com";
         String password = "password123";
         User mockUser = new User();
         mockUser.setEmailId(emailId);

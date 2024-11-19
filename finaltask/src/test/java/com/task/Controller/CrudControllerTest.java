@@ -47,14 +47,14 @@ public class CrudControllerTest {
     @Test
     public void testAddMethod_Success() throws Exception {
         User user = new User();
-        user.setUserName("testUser");
-        user.setPassword("password");
+        user.setUserName("Harish");
+        user.setPassword("Harish@1");
 
         when(userService.addUsers(any(User.class))).thenReturn(true);
 
         mockMvc.perform(post("/users/add")
-                .param("userName", "testUser")
-                .param("password", "password")
+                .param("userName", "Harish")
+                .param("password", "Harish@1")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("msg"))
@@ -68,8 +68,8 @@ public class CrudControllerTest {
         when(userService.addUsers(any(User.class))).thenReturn(false);
 
         mockMvc.perform(post("/users/add")
-                .param("userName", "testUser")
-                .param("password", "password")
+                .param("userName", "Harish")
+                .param("password", "Harish@1")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users/addform"));
@@ -101,7 +101,7 @@ public class CrudControllerTest {
     @Test
     public void testUpdateForm() throws Exception {
         User user = new User();
-        user.setUserName("testUser");
+        user.setUserName("Harish");
 
         when(userService.findUserById(1)).thenReturn(user);
 
@@ -119,7 +119,7 @@ public class CrudControllerTest {
         when(userService.updateUsers(any(User.class), anyInt())).thenReturn(true);
 
         mockMvc.perform(post("/users/update")
-                .param("userName", "testUser")
+                .param("userName", "Harish")
                 .param("refUserID", "1")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().isOk())
@@ -134,7 +134,7 @@ public class CrudControllerTest {
         when(userService.updateUsers(any(User.class), anyInt())).thenReturn(false);
 
         mockMvc.perform(post("/users/update")
-                .param("userName", "testUser")
+                .param("userName", "Harish")
                 .param("refUserID", "1")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().is3xxRedirection())

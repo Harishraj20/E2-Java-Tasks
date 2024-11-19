@@ -39,7 +39,6 @@ public class UserController {
         logger.info("Attempting to authenticate user with the mail Id :{}", emailId);
 
         boolean isAuthenticated = service.authenticateUser(emailId, password, session);
-        System.out.println("Autentication error: " + isAuthenticated);
         if (isAuthenticated) {
 
             logger.info("User authenticated succesfully: {}", emailId);
@@ -75,7 +74,7 @@ public class UserController {
         logger.info("Invalidating user!!");
         session.invalidate();
 
-        logger.info("Invalidating session on user logout and redirecting to Login page");
+        logger.info("Invalidated session on user logout and redirecting to Login page");
 
         return "redirect:/";
     }
