@@ -1,0 +1,4 @@
+com\task\Controller\CrudControllerTest.class
+com\task\Controller\UserControllerTest.class
+com\task\Repository\RepositoryTest.class
+com\task\Service\UserServiceTest.class

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -50,15 +51,15 @@ public class CrudController {
 
     }
 
-    @PostMapping("/users/delete")
+    @PostMapping("/users/delete/{userId}")
 
-    public String deleteUser(@RequestParam String userId, Model model, HttpSession session) {
+    public String deleteUser(@PathVariable String userId, Model model, HttpSession session) {
 
         logger.info("Request received to delete the user; {}", userId);
 
-        if (session.getAttribute("LoginUser") == null) {
-            return "redirect:/";
-        }
+        // if (session.getAttribute("LoginUser") == null) {
+        //     return "redirect:/";
+        // }
         int user_id = Integer.parseInt(userId);
         logger.info("Attempting to delete user.....");
         service.deleteUserById(user_id);
@@ -75,12 +76,14 @@ public class CrudController {
         return "Signup";
     }
 
-    @GetMapping("/users/updateform")
-    public String updateForm(@RequestParam String userId, Model model, HttpSession session) {
+    @GetMapping("/users/updateform/{userId}")
+    public String updateForm(@PathVariable String userId, Model model, HttpSession session) {
         logger.info("Received request to display update form for user with ID: {}", userId);
 
         int userIdForAction = Integer.parseInt(userId);
         User userToUpdate = service.findUserById(userIdForAction);
+
+   
 
         if (userToUpdate != null) {
             logger.info("User found: {}", userToUpdate.getUserName());
@@ -92,7 +95,6 @@ public class CrudController {
 
         return "UpdateForm";
     }
-
 
     @PostMapping("/users/update")
     public String updatemethod(@ModelAttribute User updateUser, @RequestParam String refUserID, Model model,

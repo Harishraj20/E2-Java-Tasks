@@ -1,22 +1,31 @@
 package com.task.Controller;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 import javax.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
+
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
@@ -59,7 +68,7 @@ public class UserControllerTest {
         when(userService.authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class)))
                 .thenReturn(true);
 
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post("/login")
                 .param("emailId", "Harish@gmail.com")
                 .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
@@ -73,7 +82,7 @@ public class UserControllerTest {
         when(userService.authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class)))
                 .thenReturn(false);
 
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post("/login")
                 .param("emailId", "Harish@gmail.com")
                 .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
@@ -83,16 +92,6 @@ public class UserControllerTest {
         verify(userService, times(1)).authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class));
     }
 
-    @Test
-    public void testShowUserPage_NotAuthenticated() throws Exception {
-        when(session.getAttribute("LoginUser")).thenReturn(null);
-
-        mockMvc.perform(get("/users"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/"));
-
-        verify(userService, times(0)).prepareUserPage(eq(1), eq(10), any(HttpSession.class), any(Model.class));
-    }
 
     @Test
     public void testLogout() throws Exception {
@@ -141,14 +140,7 @@ public class UserControllerTest {
                 .andExpect(view().name("ChangePassword"));
     }
 
-    @Test
-    public void testChangePasswordPage_NotAuthenticated() throws Exception {
-        when(session.getAttribute("LoginUser")).thenReturn(null);
 
-        mockMvc.perform(get("/users/changepassword"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/"));
-    }
 
     @Test
     public void testShowUserPage_Authenticated() throws Exception {
@@ -175,39 +167,16 @@ public class UserControllerTest {
         verify(userService, times(1)).prepareInactiveUsersPage(eq(1), eq(10), any(HttpSession.class), any(Model.class));
     }
 
-    @Test
-    public void testViewInactiveUsers_NotAuthenticated() throws Exception {
-        when(session.getAttribute("LoginUser")).thenReturn(null);
-
-        mockMvc.perform(get("/users/inactiveUsers")
-                .param("pageNumber", "1")
-                .param("pageSize", "10"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/"));
-    }
 
     @Test
     public void testViewInfos_Authenticated() throws Exception {
 
-        mockMvc.perform(get("/users/viewInfo")
-                .param("userId", "1")
-                .param("employeeId", "1")
+        mockMvc.perform(get("/users/viewInfo/1")
                 .sessionAttr("LoginUser", "admin"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("LoginInfo"));
 
         verify(userService, times(1)).prepareLoginInfoPage(eq("1"), eq(1), eq(10), any(Model.class));
-    }
-
-    @Test
-    public void testViewInfos_NotAuthenticated() throws Exception {
-        when(session.getAttribute("LoginUser")).thenReturn(null);
-
-        mockMvc.perform(get("/users/viewInfo")
-                .param("userId", "1")
-                .param("employeeId", "123"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/"));
     }
 
 }

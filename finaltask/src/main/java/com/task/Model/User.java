@@ -1,6 +1,6 @@
 package com.task.Model;
-import java.util.Set;
 
+import java.util.Set;
 
 public class User {
 
@@ -34,7 +34,6 @@ public class User {
     public String getEmployeeId() {
         return "E2E50" + String.format("%02d", userId);
     }
-    
 
     public int getUserId() {
         return userId;
@@ -116,5 +115,3 @@ public class User {
         this.gender = gender;
     }
 }
-
-
