@@ -2,16 +2,15 @@ package com.task.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import com.task.Model.Login;
 import com.task.Model.User;
@@ -40,6 +39,7 @@ public class UserService {
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             updateCredentials(user);
             session.setAttribute("LoginUser", user);
+
             logger.info("User with emailId: {} authenticated successfully", emailId);
             return true;
         } else {
@@ -60,12 +60,10 @@ public class UserService {
         int totalUsers =  repo.countTotalUsers();
        
         int totalPages = (int) Math.ceil((double) totalUsers / pageSize);
+        model.addAttribute("UserList", paginatedUsers);
+        model.addAttribute("currentPage", pageNumber);
+        model.addAttribute("totalPages", totalPages);
 
-        model.addAllAttributes(Map.of(
-            "UserList", paginatedUsers,
-            "currentPage", pageNumber,
-            "totalPages", totalPages
-        ));
         logger.info("User page prepared with total users: {} and total pages: {}", totalUsers, totalPages);
     }
 
@@ -167,13 +165,12 @@ public class UserService {
 
         int totalPages = (int) Math.ceil((double) totalLogins / pageSize);
 
-        model.addAllAttributes(Map.of(
-            "userId", user_id,
-            "Loggedinfo", logins,
-            "currentPage", page,
-            "totalPages", totalPages,
-            "totalLogins", totalLogins
-        ));
+       model.addAttribute("userId", user_id);
+       model.addAttribute("Loggedinfo", logins);
+       model.addAttribute("currentPage", page);
+       model.addAttribute("totalPages", totalPages);
+       model.addAttribute("totalLogins", totalLogins);
+
         logger.info("Login info page prepared for userId: {} with total logins: {} and total pages: {}", user_id,
                 totalLogins, totalPages);
     }
@@ -192,13 +189,12 @@ public class UserService {
 
         int totalPages = (int) Math.ceil((double) totalInactiveUsers / pageSize);
 
-        model.addAllAttributes(Map.of(
-        "UserList", paginatedInactiveUsers,
-        "currentPage", pageNumber,
-        "totalPages", totalPages,
-        "inactiveUserCount", totalInactiveUsers,
-        "empId", loginUser.getEmployeeId()
-        ));
+        model.addAttribute("UserList", paginatedInactiveUsers);
+        model.addAttribute("currentPage", pageNumber);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("inactiveUserCount", totalInactiveUsers);
+        model.addAttribute("empId", loginUser.getEmployeeId());
+
         logger.info("Inactive users page prepared with total inactive users: {} and total pages: {}",
                 totalInactiveUsers, totalPages);
     }

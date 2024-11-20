@@ -1,27 +1,32 @@
 package com.task.Controller;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import com.task.Model.User;
-import com.task.Service.UserService;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
+
+import com.task.Model.User;
+import com.task.Service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
@@ -54,8 +59,7 @@ public class CrudControllerTest {
 
         mockMvc.perform(post("/users/add")
                 .param("userName", "Harish")
-                .param("password", "Harish@1")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .param("password", "Harish@1"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("msg"))
                 .andExpect(view().name("message"));
@@ -69,8 +73,7 @@ public class CrudControllerTest {
 
         mockMvc.perform(post("/users/add")
                 .param("userName", "Harish")
-                .param("password", "Harish@1")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users/addform"));
 
@@ -120,8 +123,7 @@ public class CrudControllerTest {
 
         mockMvc.perform(post("/users/update")
                 .param("userName", "Harish")
-                .param("refUserID", "1")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .param("refUserID", "1"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("Message"))
                 .andExpect(view().name("message"));
@@ -135,8 +137,7 @@ public class CrudControllerTest {
 
         mockMvc.perform(post("/users/update")
                 .param("userName", "Harish")
-                .param("refUserID", "1")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .param("refUserID", "1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users/form?userId=1"));
 
