@@ -57,9 +57,6 @@ public class CrudController {
 
         logger.info("Request received to delete the user; {}", userId);
 
-        // if (session.getAttribute("LoginUser") == null) {
-        //     return "redirect:/";
-        // }
         int user_id = Integer.parseInt(userId);
         logger.info("Attempting to delete user.....");
         service.deleteUserById(user_id);
