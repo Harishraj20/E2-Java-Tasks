@@ -90,17 +90,6 @@ public class CrudControllerTest {
         verify(userService, times(1)).deleteUserById(1);
     }
 
-    // @Test
-    // public void testDeleteUser_NotAuthenticated() throws Exception {
-    //     // Perform POST request without setting up the session (simulate no login)
-    //     mockMvc.perform(post("/users/delete/1"))
-    //             .andExpect(status().is3xxRedirection()) // Expect a redirect status (3xx)
-    //             .andExpect(redirectedUrl("/")); // Expect redirect to home page (/)
-    
-    //     // Ensure that deleteUserById is not called since the user is not authenticated
-    //     verify(userService, never()).deleteUserById(anyInt());
-    // }
-    
     @Test
     public void testUpdateForm() throws Exception {
         User user = new User();

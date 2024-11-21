@@ -1,18 +1,18 @@
-2024-11-20 18:28:53 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2024-11-20 18:28:54 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@302edb74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7efd28bd, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@672b72ba, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7718a40f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@312b34e3, org.springframework.test.context.transaction.TransactionalTestExecutionListener@26844abb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1a865273, org.springframework.test.context.event.EventPublishingTestExecutionListener@288ca5f0]
-2024-11-20 18:28:54 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2024-11-20 18:28:54 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@78d6447a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7a729f84, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1e469dfd, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@554f0dfb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1f7076bc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@71904469, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b9396d3, org.springframework.test.context.event.EventPublishingTestExecutionListener@761e788f]
-2024-11-20 18:28:54 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2024-11-20 18:28:54 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ef6fd7f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5633ed82, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@767191b1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@34d52ecd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5d21202d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@14b789f6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6eb17ec8, org.springframework.test.context.event.EventPublishingTestExecutionListener@730f9695]
-2024-11-20 18:28:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.4.4.Final}
-2024-11-20 18:28:58 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2024-11-20 18:28:59 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2024-11-20 18:29:01 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetching Inactive(offset: 0, pageSize: 5): {}
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - user found with the id:1
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException in saveLoginInfo: Login{id=0, loginDate=2024-11-20T18:29:03.126099800}
+2024-11-21 15:04:55 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-11-21 15:04:55 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ec4ff02, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1f11f64e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2b2f5fcf, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@858d8b4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@711d1a52, org.springframework.test.context.transaction.TransactionalTestExecutionListener@612e21b9, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@302edb74, org.springframework.test.context.event.EventPublishingTestExecutionListener@7efd28bd]
+2024-11-21 15:04:55 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-11-21 15:04:55 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@b606cb6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2a3194c6, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2819c460, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@30364216, org.springframework.test.context.support.DirtiesContextTestExecutionListener@38bb9d7a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1e8ab90f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@78d6447a, org.springframework.test.context.event.EventPublishingTestExecutionListener@7a729f84]
+2024-11-21 15:04:55 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-11-21 15:04:55 [main] INFO  org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6a472566, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1907874b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@5e65afb6, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5b3a7ef5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@8851ce1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2d9dff65, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5ef6fd7f, org.springframework.test.context.event.EventPublishingTestExecutionListener@5633ed82]
+2024-11-21 15:04:58 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.4.4.Final}
+2024-11-21 15:05:00 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-11-21 15:05:01 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-11-21 15:05:03 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-21 15:05:04 [main] INFO  com.task.Repository.UserRepository - Fetching Inactive(offset: 0, pageSize: 5): {}
+2024-11-21 15:05:04 [main] INFO  com.task.Repository.UserRepository - user found with the id:1
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - HibernateException in saveLoginInfo: Login{id=0, loginDate=2024-11-21T15:05:04.722267700}
 org.hibernate.HibernateException: Test Exception
-	at com.task.Repository.UserRepository.saveLoginInfo(UserRepository.java:73) [classes/:?]
+	at com.task.Repository.UserRepository.saveLoginInfo(UserRepository.java:72) [classes/:?]
 	at com.task.Repository.RepositoryTest.testSaveLoginInfo_HibernateException(RepositoryTest.java:114) [test-classes/:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
@@ -46,53 +46,53 @@ org.hibernate.HibernateException: Test Exception
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758) [.cp/:?]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) [.cp/:?]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) [.cp/:?]
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - user found with the id:1
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception when checking user with Mail Id:Harish@gmail.com
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetching Inactive(offset: 0, pageSize: 5): {}
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception while retrieving inactive users (offset: 0, pageSize: 5): Test Generic Exception
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetching Inactive(offset: 0, pageSize: 5): {}
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException while retrieving inactive users (offset: 0, pageSize: 5): Simulated Hibernate exception
-2024-11-20 18:29:03 [main] WARN  com.task.Repository.UserRepository - Exception in adduserInfo Method.....
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException while counting inactive users: Simulated Hibernate exception
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - User saved to Database successfully
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to fetch Login Counts of user with ID:
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Hibernate exception in getLoginCount Method for user Id:5
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Hibernate Exception when checking user with Mail Id:Harish@gmail.com
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched count of inactive users from table:null
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to fetch Login Counts of user with ID:
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - user found with the id:1
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException while retrieving inactive users (offset: 0, pageSize: 5): Database error
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception while counting inactive users: Test Generic Exception
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception in getLoginInfo method
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to fetch Login Counts of user with ID:
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Hibernate Exception in getLoginInfo method
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched count of inactive users from table:5
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Successfully saved login information: Login{id=0, loginDate=2024-11-20T18:29:03.656681900}
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception in saveLoginInfo: Login{id=0, loginDate=2024-11-20T18:29:03.662665700}
+2024-11-21 15:05:04 [main] INFO  com.task.Repository.UserRepository - user found with the id:1
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - Exception when checking user with Mail Id:Harish@gmail.com
+2024-11-21 15:05:04 [main] INFO  com.task.Repository.UserRepository - Fetching Inactive(offset: 0, pageSize: 5): {}
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - Exception while retrieving inactive users (offset: 0, pageSize: 5): Test Generic Exception
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
+2024-11-21 15:05:04 [main] INFO  com.task.Repository.UserRepository - Fetching Inactive(offset: 0, pageSize: 5): {}
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - HibernateException while retrieving inactive users (offset: 0, pageSize: 5): Simulated Hibernate exception
+2024-11-21 15:05:04 [main] WARN  com.task.Repository.UserRepository - Exception in adduserInfo Method.....
+2024-11-21 15:05:04 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - HibernateException while counting inactive users: Simulated Hibernate exception
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
+2024-11-21 15:05:04 [main] INFO  com.task.Repository.UserRepository - User saved to Database successfully
+2024-11-21 15:05:04 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Attempting to fetch Login Counts of user with ID:
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Hibernate exception in getLoginCount Method for user Id:5
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Hibernate Exception when checking user with Mail Id:Harish@gmail.com
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched count of inactive users from table:null
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Exception while updating user
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Attempting to fetch Login Counts of user with ID:
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - user found with the id:1
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - HibernateException while updating user
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - HibernateException while retrieving inactive users (offset: 0, pageSize: 5): Database error
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Exception while counting inactive users: Test Generic Exception
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Exception in getLoginInfo method
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Attempting to fetch Login Counts of user with ID:
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Hibernate Exception in getLoginInfo method
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched count of inactive users from table:5
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Trying to get login Info
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched Login info successfully for user:1
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Successfully saved login information: Login{id=0, loginDate=2024-11-21T15:05:05.265999400}
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Exception in saveLoginInfo: Login{id=0, loginDate=2024-11-21T15:05:05.277388300}
 java.lang.RuntimeException: Test Exception
-	at com.task.Repository.UserRepository.saveLoginInfo(UserRepository.java:73) [classes/:?]
+	at com.task.Repository.UserRepository.saveLoginInfo(UserRepository.java:72) [classes/:?]
 	at com.task.Repository.RepositoryTest.testSaveLoginInfo_GenericException(RepositoryTest.java:123) [test-classes/:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
@@ -126,153 +126,160 @@ java.lang.RuntimeException: Test Exception
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758) [.cp/:?]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) [.cp/:?]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) [.cp/:?]
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Hibernate exception in addUserInfo method....
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - user deleted with the id:1
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - HibernateException in count total users
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - user found with the id:999
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
-2024-11-20 18:29:03 [main] INFO  com.task.Repository.UserRepository - Fetched count of inactive users from table:0
-2024-11-20 18:29:03 [main] ERROR com.task.Repository.UserRepository - Exception in count total users
-2024-11-20 18:29:03 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:03 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:03 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Received password change request for user with session ID: 1
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Password updated successfully for user with session ID: 1
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - User requesting for change password page
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - request to view inactive users!
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Preparing inactive user info page
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Displaying inactiveusers list to the user!
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Received password change request for user with session ID: 5
-2024-11-20 18:29:04 [main] WARN  com.task.Controller.UserController - Failed to update password for user with session ID: 5
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Request to view info for user with ID: 1 (Page: 1, Page Size: 10)
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Returning LoginInfo page for user with ID: 1
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Harish@gmail.com
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - User authenticated succesfully: Harish@gmail.com
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Redirecting user to /users
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - User requesting Home page!
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Harish@gmail.com
-2024-11-20 18:29:04 [main] WARN  com.task.Controller.UserController - Authentication failed for user with Email Id:Harish@gmail.com
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Redirecting user to /
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Invalidating user!!
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.UserController - Invalidated session on user logout and redirecting to Login page
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - received request to add new user.....
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - User "Harish" created successfully!
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - User requesting Signup page.....
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - Received request to display update form for user with ID: 1
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - User found: Harish
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - Received request to display update form for user with ID: 1
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - User found: Harish
-2024-11-20 18:29:04 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:04 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:04 [main] INFO  com.task.Controller.CrudController - received request to add new user.....
-2024-11-20 18:29:05 [main] WARN  com.task.Controller.CrudController - Error in adding user... Redirecting back to add user form page
-2024-11-20 18:29:05 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:05 [main] INFO  com.task.Controller.CrudController - Received request to update user with ID: 1
-2024-11-20 18:29:05 [main] INFO  com.task.Controller.CrudController - User with ID: 1 updated successfully
-2024-11-20 18:29:05 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:05 [main] INFO  com.task.Controller.CrudController - Received request to display update form for user with ID: 10
-2024-11-20 18:29:05 [main] WARN  com.task.Controller.CrudController - User with ID: 10 not found.
-2024-11-20 18:29:05 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
-2024-11-20 18:29:05 [main] INFO  com.task.Controller.CrudController - Received request to update user with ID: 1
-2024-11-20 18:29:05 [main] WARN  com.task.Controller.CrudController - Failed to update user with ID: 1. Mail ID may be in use.
-2024-11-20 18:29:05 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-2024-11-20 18:29:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2024-11-20 18:29:05 [main] INFO  com.task.Controller.CrudController - Request received to delete the user; 1
-2024-11-20 18:29:05 [main] INFO  com.task.Controller.CrudController - Attempting to delete user.....
-2024-11-20 18:29:05 [main] INFO  com.task.Controller.CrudController - Redirecting to user page after deleting the user...
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Fetching inactive users (Page: 1, Size: 10)
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to update user with ID: 0
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - User with ID: 0 updated successfully
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Harish@gmail.com
-2024-11-20 18:29:05 [main] WARN  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder - Empty encoded password
-2024-11-20 18:29:05 [main] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: Harish@gmail.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: nonexistent@example.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Checking user with emailId: nonexistent@example.com
-2024-11-20 18:29:05 [main] WARN  com.task.Service.UserService - Authentication failed for user with emailId: nonexistent@example.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to update user with ID: 0
-2024-11-20 18:29:05 [main] WARN  com.task.Service.UserService - Email ID: Aravindh@gmail.com is already in use by another user.
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to delete user with ID: 1
-2024-11-20 18:29:05 [main] WARN  com.task.Service.UserService - User with ID: 1 not found for deletion
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to add user with emailId: arvind.kumar@gmail.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - User with emailId: arvind.kumar@gmail.com added successfully.
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to add user with emailId: arvind.kumar@gmail.com
-2024-11-20 18:29:05 [main] WARN  com.task.Service.UserService - User with emailId: arvind.kumar@gmail.com already exists.
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to update user with ID: 1
-2024-11-20 18:29:05 [main] WARN  com.task.Service.UserService - User with ID: 1 not found for update
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Preparing inactive users page for page number: 1 with page size: 10
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Inactive users page prepared with total inactive users: 25 and total pages: 3
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Fetching inactive users (Page: 1, Size: 10)
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Harish@gmail.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Password updated successfully for user with emailId: Harish@gmail.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - User page prepared with total users: 50 and total pages: 5
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Preparing login info page for userId: 1 (Page: 1, Size: 10)
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Login info page prepared for userId: 1 with total logins: 15 and total pages: 2
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: siva@gmail.com
-2024-11-20 18:29:05 [main] WARN  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
-2024-11-20 18:29:05 [main] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: siva@gmail.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Fetching user with ID: 0
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: arvind.kumar@gmail.com
-2024-11-20 18:29:05 [main] INFO  com.task.Service.UserService - Checking user with emailId: arvind.kumar@gmail.com
-2024-11-20 18:29:06 [main] WARN  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
-2024-11-20 18:29:06 [main] WARN  com.task.Service.UserService - Authentication failed for user with emailId: arvind.kumar@gmail.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Updating credentials for user with emailId: arvind.kumar@gmail.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Credentials updated for user with emailId: arvind.kumar@gmail.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Attempting to delete user with ID: 0
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - User with ID: 0 deleted successfully
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: harish@gmail.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Checking user with emailId: harish@gmail.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Updating credentials for user with emailId: harish@gmail.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Credentials updated for user with emailId: harish@gmail.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - User with emailId: harish@gmail.com authenticated successfully
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Harish@google.com
-2024-11-20 18:29:06 [main] INFO  com.task.Service.UserService - Checking user with emailId: Harish@google.com
-2024-11-20 18:29:06 [main] WARN  com.task.Service.UserService - Authentication failed for user with emailId: Harish@google.com
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Hibernate exception in addUserInfo method....
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - user deleted with the id:1
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - HibernateException in count total users
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - user found with the id:999
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Attempting to get count of inactive users
+2024-11-21 15:05:05 [main] INFO  com.task.Repository.UserRepository - Fetched count of inactive users from table:0
+2024-11-21 15:05:05 [main] ERROR com.task.Repository.UserRepository - Exception in count total users
+2024-11-21 15:05:05 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:05 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - received request to add new user.....
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - User "Harish" created successfully!
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - User requesting Signup page.....
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Received request to display update form for user with ID: 1
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - User found: Harish
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Received request to display update form for user with ID: 1
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - User found: Harish
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - received request to add new user.....
+2024-11-21 15:05:06 [main] WARN  com.task.Controller.CrudController - Error in adding user... Redirecting back to add user form page
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Received request to update user with ID: 1
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - User with ID: 1 updated successfully
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Received request to display update form for user with ID: 10
+2024-11-21 15:05:06 [main] WARN  com.task.Controller.CrudController - User with ID: 10 not found.
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Received request to update user with ID: 1
+2024-11-21 15:05:06 [main] WARN  com.task.Controller.CrudController - Failed to update user with ID: 1. Mail ID may be in use.
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Request received to delete the user; 1
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Attempting to delete user.....
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.CrudController - Redirecting to user page after deleting the user...
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Received password change request for user with session ID: 9
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Password updated successfully for user with session ID: 9
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - User requesting for change password page
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Redirecting User to Home page succesfully!
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Received password change request for user with session ID: 12
+2024-11-21 15:05:06 [main] WARN  com.task.Controller.UserController - Failed to update password for user with session ID: 12
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Request to view info for user with ID: 1 (Page: 1, Page Size: 10)
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Returning LoginInfo page for user with ID: 1
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Harish@gmail.com
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - User authenticated succesfully: Harish@gmail.com
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Redirecting user to /users
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - User requesting Home page!
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 10 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Attempting to authenticate user with the mail Id :Harish@gmail.com
+2024-11-21 15:05:06 [main] WARN  com.task.Controller.UserController - Authentication failed for user with Email Id:Harish@gmail.com
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Redirecting user to /
+2024-11-21 15:05:06 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-11-21 15:05:06 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Invalidating user!!
+2024-11-21 15:05:06 [main] INFO  com.task.Controller.UserController - Invalidated session on user logout and redirecting to Login page
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - AuthenticationFilter initialized
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - AuthenticationFilter destroyed
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - AuthenticationFilter initialized
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - Inside doFilter method
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - Requested URL: null
+2024-11-21 15:05:07 [main] WARN  com.task.Filters.AuthenticationFilter - User not authenticated, redirecting to login page
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - User redirected to: /finaltask
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - AuthenticationFilter initialized
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - AuthenticationFilter initialized
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - AuthenticationFilter initialized
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - Inside doFilter method
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - Requested URL: null
+2024-11-21 15:05:07 [main] INFO  com.task.Filters.AuthenticationFilter - User is authenticated, proceeding with request
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Fetching inactive users (Page: 1, Size: 10)
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to update user with ID: 0
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - User with ID: 0 updated successfully
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Harish@gmail.com
+2024-11-21 15:05:07 [main] WARN  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder - Empty encoded password
+2024-11-21 15:05:07 [main] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: Harish@gmail.com
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: nonexistent@example.com
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Checking user with emailId: nonexistent@example.com
+2024-11-21 15:05:07 [main] WARN  com.task.Service.UserService - Authentication failed for user with emailId: nonexistent@example.com
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to update user with ID: 0
+2024-11-21 15:05:07 [main] WARN  com.task.Service.UserService - Email ID: Aravindh@gmail.com is already in use by another user.
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to delete user with ID: 1
+2024-11-21 15:05:07 [main] WARN  com.task.Service.UserService - User with ID: 1 not found for deletion
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to add user with emailId: arvind.kumar@gmail.com
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - User with emailId: arvind.kumar@gmail.com added successfully.
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to add user with emailId: arvind.kumar@gmail.com
+2024-11-21 15:05:07 [main] WARN  com.task.Service.UserService - User with emailId: arvind.kumar@gmail.com already exists.
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to update user with ID: 1
+2024-11-21 15:05:07 [main] WARN  com.task.Service.UserService - User with ID: 1 not found for update
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Preparing inactive users page for page number: 1 with page size: 10
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Inactive users page prepared with total inactive users: 25 and total pages: 3
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Fetching inactive users (Page: 1, Size: 10)
+2024-11-21 15:05:07 [main] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: Harish@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Password updated successfully for user with emailId: Harish@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Preparing user page for page number: 1 with page size: 10
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - User page prepared with total users: 50 and total pages: 5
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Preparing login info page for userId: 1 (Page: 1, Size: 10)
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Login info page prepared for userId: 1 with total logins: 15 and total pages: 2
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Attempting to update password for user with emailId: siva@gmail.com
+2024-11-21 15:05:08 [main] WARN  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
+2024-11-21 15:05:08 [main] WARN  com.task.Service.UserService - Old password mismatch for user with emailId: siva@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Fetching user with ID: 0
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: arvind.kumar@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Checking user with emailId: arvind.kumar@gmail.com
+2024-11-21 15:05:08 [main] WARN  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
+2024-11-21 15:05:08 [main] WARN  com.task.Service.UserService - Authentication failed for user with emailId: arvind.kumar@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Updating credentials for user with emailId: arvind.kumar@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Credentials updated for user with emailId: arvind.kumar@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Attempting to delete user with ID: 0
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - User with ID: 0 deleted successfully
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: harish@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Checking user with emailId: harish@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Updating credentials for user with emailId: harish@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Credentials updated for user with emailId: harish@gmail.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - User with emailId: harish@gmail.com authenticated successfully
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Attempting authentication for user with emailId: Harish@google.com
+2024-11-21 15:05:08 [main] INFO  com.task.Service.UserService - Checking user with emailId: Harish@google.com
+2024-11-21 15:05:08 [main] WARN  com.task.Service.UserService - Authentication failed for user with emailId: Harish@google.com

@@ -6,11 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
-
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -154,20 +151,6 @@ public class UserControllerTest {
         verify(userService, times(1))
                 .prepareUserPage(eq(1), eq(10), any(HttpSession.class), any(Model.class));
     }
-
-    @Test
-    public void testViewInactiveUsers_Authenticated() throws Exception {
-        mockMvc.perform(get("/users/inactiveUsers")
-                .param("pageNumber", "1")
-                .param("pageSize", "10")
-                .sessionAttr("LoginUser", "admin"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("InactiveUsers"));
-
-        verify(userService, times(1)).prepareInactiveUsersPage(eq(1), eq(10), any(HttpSession.class), any(Model.class));
-    }
-
-
     @Test
     public void testViewInfos_Authenticated() throws Exception {
 

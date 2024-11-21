@@ -5,6 +5,7 @@ const dobField = document.getElementById("dob-field");
 const designationField = document.getElementById("designation-field");
 const roleField = document.getElementById("role-field");
 const emailField = document.getElementById("email-field");
+const genderField = document.getElementById("gender-field");
 
 const formSubmitButton = document.getElementById("form-submit");
 const resetButton = document.querySelector(".reset-button");
@@ -103,7 +104,7 @@ function validateForm() {
     isValid &= validateField(designationField, "designationError");
     isValid &= validateField(roleField, "roleError");
     isValid &= validateField(emailField, "emailerror");
-
+    isValid &= validateField(genderField, "genderError");
     return isValid;
 }
 
@@ -150,6 +151,9 @@ roleField.addEventListener("input", function () {
 });
 emailField.addEventListener("input", function () {
     validateField(this, "emailerror");
+});
+genderField.addEventListener("input", function () {
+    validateField(this, "genderError");
 });
 
 

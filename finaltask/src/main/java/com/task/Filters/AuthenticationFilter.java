@@ -1,13 +1,18 @@
 package com.task.Filters;
 
-import javax.servlet.*;
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.io.IOException;
 
 public class AuthenticationFilter implements Filter {
     protected static final Logger logger = LogManager.getLogger();
@@ -32,6 +37,7 @@ public class AuthenticationFilter implements Filter {
             logger.warn("User not authenticated, redirecting to login page");
 
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
+            logger.info("User redirected to: {}",httpRequest.getContextPath());
             return; 
         }
 
