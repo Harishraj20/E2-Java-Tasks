@@ -52,18 +52,20 @@ public class CrudController {
     }
 
     @PostMapping("/users/delete/{userId}")
-
-    public String deleteUser(@PathVariable String userId, Model model, HttpSession session) {
-
+    public String deleteUser(@PathVariable String userId, RedirectAttributes redirectAttributes) {
         logger.info("Request received to delete the user; {}", userId);
-
+    
         int user_id = Integer.parseInt(userId);
         logger.info("Attempting to delete user.....");
         service.deleteUserById(user_id);
-
+    
+        redirectAttributes.addFlashAttribute("toastMessage", 
+        "Employee with Id E2E50" + String.format("%02d", user_id) + " deleted successfully!");
+        
         logger.info("Redirecting to user page after deleting the user...");
         return "redirect:/users";
     }
+    
 
     @GetMapping("/users/addform")
     public String addForm(Model model, HttpSession session) {

@@ -132,6 +132,23 @@ form{
 .addUser-btn.viewer {
   width: 38%;
 }
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.toast.visible {
+  opacity: 1;
+  visibility: visible;
+}
 
 
 
@@ -152,8 +169,9 @@ p {
 
 
 .table-container {
+  padding-right: 2%;
   width: 95%;
-  height: 71%;
+  height: 67%;
   overflow: auto;
   margin-left: 2%;
 }

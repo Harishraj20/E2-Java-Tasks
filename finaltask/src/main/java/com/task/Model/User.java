@@ -1,10 +1,6 @@
 package com.task.Model;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Set;
-
-import org.springframework.format.datetime.DateFormatter;
 
 public class User {
 

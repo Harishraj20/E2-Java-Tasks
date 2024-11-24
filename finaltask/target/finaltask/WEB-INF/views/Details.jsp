@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+isELIgnored="false" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,6 +19,8 @@
   <body>
     <c:set var="loggedInUser" value="${sessionScope.LoginUser}" />
 
+    <div id="toast" class="toast"></div>
+
     <div class="user-details">
       <div class="display-user">
         <p>USER ID: ${loggedInUser.employeeId}</p>
@@ -34,7 +37,9 @@
       </div>
     </div>
 
-    <div class="addUser-btn ${loggedInUser.role eq 'admin' ? 'admin' : 'viewer'}">
+    <div
+      class="addUser-btn ${loggedInUser.role eq 'admin' ? 'admin' : 'viewer'}"
+    >
       <form action="/finaltask/users/inactiveUsers" method="get">
         <button class="add-btn">Inactive Users</button>
       </form>
@@ -70,16 +75,22 @@
             <td>${loggedInUser.dob}</td>
             <td>
               <div class="action-holder">
-                <form action="/finaltask/users/viewInfo/${loggedInUser.userId}" method="get">
+                <form
+                  action="/finaltask/users/viewInfo/${loggedInUser.userId}"
+                  method="get"
+                >
                   <button class="btn view-btn">View</button>
                 </form>
-                <form action="/finaltask/users/updateform/${loggedInUser.userId}" method="get">
+                <form
+                  action="/finaltask/users/updateform/${loggedInUser.userId}"
+                  method="get"
+                >
                   <button class="btn edit-btn">Edit</button>
                 </form>
               </div>
             </td>
           </tr>
-        
+
           <c:forEach var="user" items="${UserList}">
             <c:if test="${user.userId != loggedInUser.userId}">
               <tr>
@@ -91,7 +102,10 @@
                 <td>${user.dob}</td>
                 <td>
                   <div class="action-holder">
-                    <form action="/finaltask/users/viewInfo/${user.userId}" method="get">
+                    <form
+                      action="/finaltask/users/viewInfo/${user.userId}"
+                      method="get"
+                    >
                       <button class="btn view-btn">View</button>
                     </form>
                     <c:choose>
@@ -110,14 +124,16 @@
               </tr>
             </c:if>
           </c:forEach>
-        </tbody>        
+        </tbody>
       </table>
     </div>
     <div class="pagination">
       <c:if test="${currentPage > 1}">
-        <a href="/finaltask/users?pageNumber=${currentPage - 1}&pageSize=10">Previous</a>
+        <a href="/finaltask/users?pageNumber=${currentPage - 1}&pageSize=10"
+          >Previous</a
+        >
       </c:if>
-    
+
       <c:forEach begin="1" end="${totalPages}" var="i">
         <c:choose>
           <c:when test="${i == currentPage}">
@@ -128,11 +144,25 @@
           </c:otherwise>
         </c:choose>
       </c:forEach>
-    
+
       <c:if test="${currentPage < totalPages}">
-        <a href="/finaltask/users?pageNumber=${currentPage + 1}&pageSize=10">Next</a>
+        <a href="/finaltask/users?pageNumber=${currentPage + 1}&pageSize=10"
+          >Next</a
+        >
       </c:if>
     </div>
+
+    <script>
+      const toast = document.getElementById("toast");
+      const toastMessage = "${toastMessage}"; 
+      if (toastMessage) {
+        toast.textContent = toastMessage;
+        toast.classList.add("visible");
+        setTimeout(() => {
+          toast.classList.remove("visible");
+        }, 5000);
+      }
+    </script>
     
   </body>
 </html>

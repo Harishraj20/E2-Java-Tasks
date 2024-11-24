@@ -5,11 +5,14 @@ import javax.servlet.http.HttpSession;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.ContextConfiguration;
@@ -160,6 +163,16 @@ public class UserControllerTest {
                 .andExpect(view().name("LoginInfo"));
 
         verify(userService, times(1)).prepareLoginInfoPage(eq("1"), eq(1), eq(10), any(Model.class));
+    }
+
+     @Test
+    public void testViewInactiveUsers() {
+        int pageNumber = 1;
+        int pageSize = 10;
+        String viewName = userController.viewInactiveUsers(model, session, pageNumber, pageSize);
+        verify(userService).prepareInactiveUsersPage(pageNumber, pageSize, session, model);
+        verifyNoMoreInteractions(userService);
+        assertEquals("InactiveUsers", viewName);
     }
 
 }
