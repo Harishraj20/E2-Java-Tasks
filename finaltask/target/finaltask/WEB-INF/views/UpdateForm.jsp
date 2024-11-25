@@ -53,6 +53,7 @@
                   placeholder="Enter User Name"
                   maxlength="30"
                   value="${user.userName}"
+                  autofocus
                 />
               </div>
               <div id="nameError" class="error"></div>

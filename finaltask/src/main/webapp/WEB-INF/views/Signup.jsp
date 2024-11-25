@@ -50,6 +50,7 @@
                   id="name"
                   placeholder="Enter User Name"
                   maxlength="30"
+                  autofocus
                 />
               </div>
               <div id="nameError" class="error"></div>

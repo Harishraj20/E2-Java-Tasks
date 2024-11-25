@@ -23,6 +23,7 @@
               id="mailIdField"
               placeholder="Enter your email"
               name="emailId"
+              autofocus
             />
           </div>
           <div class="error-msg" id="emailError"></div>
