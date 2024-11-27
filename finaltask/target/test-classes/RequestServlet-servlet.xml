@@ -49,7 +49,7 @@
         </property>
         <property name="packagesToScan" value="com.task.Model" />
     </bean>
-    
+
 
     <bean id="transactionManager"
         class="org.springframework.orm.hibernate5.HibernateTransactionManager">

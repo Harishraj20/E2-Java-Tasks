@@ -15,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class AuthenticationFilter implements Filter {
+
     protected static final Logger logger = LogManager.getLogger();
 
     @Override
@@ -26,7 +27,7 @@ public class AuthenticationFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         logger.info("Inside doFilter method");
-        
+
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
@@ -37,8 +38,8 @@ public class AuthenticationFilter implements Filter {
             logger.warn("User not authenticated, redirecting to login page");
 
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
-            logger.info("User redirected to: {}",httpRequest.getContextPath());
-            return; 
+            logger.info("User redirected to: {}", httpRequest.getContextPath());
+            return;
         }
 
         logger.info("User is authenticated, proceeding with request");

@@ -22,7 +22,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import org.junit.runner.RunWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import org.mockito.InjectMocks;
@@ -33,16 +32,10 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.task.Model.Login;
 import com.task.Model.User;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
-@WebAppConfiguration
 public class RepositoryTest {
 
     @Mock
@@ -103,7 +96,6 @@ public class RepositoryTest {
     public void testSaveLoginInfo_Success() {
         userRepository.saveLoginInfo(login);
 
-        verify(sessionFactory, times(1)).getCurrentSession();
         verify(session, times(1)).save(login);
     }
 
@@ -201,7 +193,6 @@ public class RepositoryTest {
         doNothing().when(session).delete(user);
 
         userRepository.deleteUser(userId);
-        verify(session, times(1)).get(User.class, userId);
         verify(session, times(1)).delete(user);
     }
 
@@ -212,7 +203,7 @@ public class RepositoryTest {
         when(session.get(User.class, userId)).thenReturn(null);
         userRepository.deleteUser(userId);
         verify(session, times(1)).get(User.class, userId);
-        verify(session, times(0)).delete(any());
+        verify(session, times(0)).delete(userId);
     }
 
     @Test

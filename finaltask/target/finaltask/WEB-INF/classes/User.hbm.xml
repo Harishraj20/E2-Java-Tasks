@@ -14,7 +14,7 @@
         <property name="gender" column="gender" />
         <property name="loginStatus" column="loginStatus" />
         <set name="logins" table="login_info" cascade="all" fetch="select" lazy="true">
-            <key column="user_id" /> 
+            <key column="user_id" />
             <one-to-many class="com.task.Model.Login" />
         </set>
     </class>

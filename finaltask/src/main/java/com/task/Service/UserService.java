@@ -18,6 +18,7 @@ import com.task.Repository.UserRepository;
 
 @Service
 public class UserService {
+
     private final UserRepository repo;
 
     @Autowired
@@ -50,15 +51,15 @@ public class UserService {
 
     //UserPage with pagnation
     public void prepareUserPage(int pageNumber, int pageSize, HttpSession session, Model model) {
-        
+
         logger.info("Preparing user page for page number: {} with page size: {}", pageNumber, pageSize);
-       
+
         int offset = (pageNumber - 1) * pageSize;
-        
+
         List<User> paginatedUsers = repo.fetchUsersWithPagination(offset, pageSize);
-        
-        int totalUsers =  repo.countTotalUsers();
-       
+
+        int totalUsers = repo.countTotalUsers();
+
         int totalPages = (int) Math.ceil((double) totalUsers / pageSize);
         model.addAttribute("UserList", paginatedUsers);
         model.addAttribute("currentPage", pageNumber);
@@ -69,6 +70,7 @@ public class UserService {
 
     //Add Users
     public boolean addUsers(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         logger.info("Attempting to add user with emailId: {}", user.getEmailId());
 
         if (repo.checkUserByEmailid(user.getEmailId()) != null) {
@@ -79,7 +81,6 @@ public class UserService {
         boolean isAdded = repo.addUserInfo(user);
 
         logger.info("User with emailId: {} added successfully.", user.getEmailId());
-      
 
         return isAdded;
     }
@@ -87,7 +88,7 @@ public class UserService {
     //Updating credentials on Login
     public void updateCredentials(User user) {
         logger.info("Updating credentials for user with emailId: {}", user.getEmailId());
-        
+
         user.setLoginStatus(user.getLoginStatus() + 1);
         repo.updateUser(user);
 
@@ -119,6 +120,7 @@ public class UserService {
             return false;
         }
     }
+
     //Locate user by ID
     public User findUserById(int userIdForAction) {
         logger.info("Fetching user with ID: {}", userIdForAction);
@@ -154,22 +156,22 @@ public class UserService {
 
     //Pagination for Login Details
     public void prepareLoginInfoPage(String userId, int page, int pageSize, Model model) {
-        
+
         logger.info("Preparing login info page for userId: {} (Page: {}, Size: {})", userId, page, pageSize);
 
         int user_id = Integer.parseInt(userId);
 
         List<Login> logins = repo.getLoginInfo(user_id, page, pageSize);
 
-        int totalLogins =repo.getTotalLoginCount(user_id);
+        int totalLogins = repo.getTotalLoginCount(user_id);
 
         int totalPages = (int) Math.ceil((double) totalLogins / pageSize);
 
-       model.addAttribute("userId", user_id);
-       model.addAttribute("Loggedinfo", logins);
-       model.addAttribute("currentPage", page);
-       model.addAttribute("totalPages", totalPages);
-       model.addAttribute("totalLogins", totalLogins);
+        model.addAttribute("userId", user_id);
+        model.addAttribute("Loggedinfo", logins);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalLogins", totalLogins);
 
         logger.info("Login info page prepared for userId: {} with total logins: {} and total pages: {}", user_id,
                 totalLogins, totalPages);
@@ -183,7 +185,7 @@ public class UserService {
 
         int offset = (pageNumber - 1) * pageSize;
 
-        List<User> paginatedInactiveUsers =  repo.findInactiveUsers(offset, pageSize);
+        List<User> paginatedInactiveUsers = repo.findInactiveUsers(offset, pageSize);
 
         int totalInactiveUsers = repo.countInactiveUsers();
 
@@ -201,7 +203,7 @@ public class UserService {
 
     //Update User passowrd Functionality
     public boolean updateUserPassword(HttpSession session, String oldPassword, String newPassword) {
-        
+
         logger.info("Attempting to update password for user with emailId: {}",
                 ((User) session.getAttribute("LoginUser")).getEmailId());
 

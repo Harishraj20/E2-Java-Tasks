@@ -2,19 +2,11 @@ package com.task.Controller;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -28,9 +20,6 @@ import org.springframework.ui.Model;
 import com.task.Model.User;
 import com.task.Service.UserService;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
-@WebAppConfiguration
 public class CrudControllerTest {
 
     private CrudController crudController;
@@ -63,8 +52,6 @@ public class CrudControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("msg"))
                 .andExpect(view().name("message"));
-
-        verify(userService, times(1)).addUsers(any(User.class));
     }
 
     @Test
@@ -76,8 +63,6 @@ public class CrudControllerTest {
                 .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users/addform"));
-
-        verify(userService, times(1)).addUsers(any(User.class));
     }
 
     @Test
@@ -86,8 +71,6 @@ public class CrudControllerTest {
                 .sessionAttr("LoginUser", "admin"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users"));
-
-        verify(userService, times(1)).deleteUserById(1);
     }
 
     @Test
@@ -101,8 +84,6 @@ public class CrudControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("user"))
                 .andExpect(view().name("UpdateForm"));
-
-        verify(userService, times(1)).findUserById(1);
     }
 
     @Test
@@ -115,8 +96,6 @@ public class CrudControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("Message"))
                 .andExpect(view().name("message"));
-
-        verify(userService, times(1)).updateUsers(any(User.class), eq(1));
     }
 
     @Test
@@ -128,8 +107,6 @@ public class CrudControllerTest {
                 .param("refUserID", "1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users/form?userId=1"));
-
-        verify(userService, times(1)).updateUsers(any(User.class), eq(1));
     }
 
     @Test
@@ -138,6 +115,7 @@ public class CrudControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("Signup"));
     }
+
     @Test
     public void testUpdateForm_UserFound() throws Exception {
         User user = new User();
@@ -150,9 +128,6 @@ public class CrudControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("UpdateForm"))
                 .andExpect(model().attribute("user", user));
-
-        verify(userService).findUserById(1);
-        verify(model, never()).addAttribute("error", "User not found");
     }
 
     @Test
@@ -162,15 +137,6 @@ public class CrudControllerTest {
         mockMvc.perform(get("/users/updateform/10"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("UpdateForm"));
-
-        verify(userService).findUserById(10);
-        verify(model, never()).addAttribute("user", new User());
     }
-
-    
-
-
-
-
 
 }

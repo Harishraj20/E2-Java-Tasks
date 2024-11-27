@@ -41,8 +41,8 @@ function validateForm(event) {
 
   if (!passwordField.value.trim()) {
     passwordError.innerText = "Password field cannot be empty!";
-    console.log("Reached Here")
-    console.log("1---------------------- If empty reaches here")
+    console.log("Reached Here");
+    console.log("1---------------------- If empty reaches here");
     passwordError.style.visibility = "visible";
     passwordField.classList.add("invalid");
     isValid = false;
@@ -60,7 +60,6 @@ function validateForm(event) {
 }
 
 document.getElementById("loginForm").addEventListener("submit", validateForm);
-
 
 function resetForm() {
   emailField.value = "";
@@ -96,12 +95,10 @@ passwordField.onchange = () => {
     passwordError.style.visibility = "visible";
   }
 };
-const errorMessage = document.getElementById('errorMessage');
+const errorMessage = document.getElementById("errorMessage");
 
 if (errorMessage) {
   setTimeout(function () {
-    errorMessage.style.visibility = 'hidden';
+    errorMessage.style.visibility = "hidden";
   }, 5000);
 }
-
-

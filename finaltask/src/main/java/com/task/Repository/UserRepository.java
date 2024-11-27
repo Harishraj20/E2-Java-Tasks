@@ -82,31 +82,30 @@ public class UserRepository {
     public List<Login> getLoginInfo(int userId, int page, int pageSize) {
         try {
             logger.info("Trying to get login Info");
-    
+
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(Login.class);
-    
+
             criteria.createAlias("user", "u");
-            
+
             criteria.add(Restrictions.eq("u.userId", userId));
-    
+
             criteria.setFirstResult((page - 1) * pageSize);
             criteria.setMaxResults(pageSize);
-    
+
             logger.info("Fetched Login info successfully for user:{}", userId);
-    
+
             return criteria.list();
 
         } catch (HibernateException e) {
             logger.error("Hibernate Exception in getLoginInfo method");
             return null;
-        }catch (Exception e) {
+        } catch (Exception e) {
             logger.error("Exception in getLoginInfo method");
             return null;
         }
 
     }
-    
 
     //Total Login Counts for Pagination
     public int getTotalLoginCount(int userId) {
@@ -118,9 +117,9 @@ public class UserRepository {
             Criteria criteria = session.createCriteria(Login.class);
             criteria.createAlias("user", "u");
             criteria.add(Restrictions.eq("u.userId", userId));
-        
+
             criteria.setProjection(Projections.rowCount());
-            
+
             Long count = (Long) criteria.uniqueResult();
             return count != null ? count.intValue() : 0;
         } catch (HibernateException e) {
@@ -136,7 +135,7 @@ public class UserRepository {
             User user = session.get(User.class, userId);
             if (user != null) {
                 session.delete(user);
-                logger.info("user deleted with the id:{}",userId);
+                logger.info("user deleted with the id:{}", userId);
 
             }
         } catch (HibernateException e) {
@@ -150,7 +149,7 @@ public class UserRepository {
     public User findUser(int userIdForAction) {
         try {
             Session session = sessionFactory.getCurrentSession();
-            logger.info("user found with the id:{}",userIdForAction);
+            logger.info("user found with the id:{}", userIdForAction);
             return session.get(User.class, userIdForAction);
 
         } catch (HibernateException e) {
@@ -201,7 +200,7 @@ public class UserRepository {
             return criteria.list();
         } catch (HibernateException e) {
             logger.error("HibernateException while retrieving inactive users (offset: {}, pageSize: {}): {}", offset,
-            pageSize, e.getMessage());
+                    pageSize, e.getMessage());
             return Collections.emptyList();
         }
     }
@@ -216,8 +215,7 @@ public class UserRepository {
         } catch (HibernateException e) {
             logger.error("HibernateException in count total users");
             return 0;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             logger.error("Exception in count total users");
             return 0;
         }

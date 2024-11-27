@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 html,
 body {
   height: 100%;
@@ -15,6 +16,7 @@ table {
   font-size: 1em;
   text-align: left;
 }
+
 th,
 td {
   padding: 10px;
@@ -22,6 +24,7 @@ td {
   text-align: center;
   font-size: larger;
 }
+
 th {
   background-color: hsl(0, 75%, 27%);
   color: #ffffff;
@@ -30,9 +33,11 @@ th {
   top: 0;
   z-index: 1;
 }
+
 tr:nth-child(even) {
   background-color: hsl(0, 94%, 86%);
 }
+
 .user-details {
   height: 10%;
   width: 100%;
@@ -43,6 +48,7 @@ tr:nth-child(even) {
   font-weight: bolder;
   margin-bottom: 1%;
 }
+
 .display-user {
   width: 23%;
   height: 100%;
@@ -52,6 +58,7 @@ tr:nth-child(even) {
   align-items: flex-start;
   margin-left: 2%;
 }
+
 .display-title {
   width: 50%;
   height: 100%;
@@ -59,6 +66,7 @@ tr:nth-child(even) {
   justify-content: center;
   align-items: center;
 }
+
 .logout-field {
   width: 22%;
   height: 100%;
@@ -78,18 +86,21 @@ tr:nth-child(even) {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .addUser-btn {
   width: 45%;
   display: flex;
   justify-content: center;
   padding: 20px;
   gap: 10px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
-form{
+
+form {
   width: 25%;
   display: contents;
 }
+
 .add-btn {
   width: 100%;
   padding: 10px;
@@ -100,15 +111,18 @@ form{
   font-size: larger;
   color: whitesmoke;
 }
+
 .add-btn:hover {
   background-color: hsl(0, 75%, 27%);
 }
+
 .message-content {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .pagination a {
   padding: 8px 16px;
   text-decoration: none;
@@ -120,11 +134,13 @@ form{
   font-weight: bold;
   background-color: #f0f0f0;
 }
+
 .pagination {
   margin-top: 1%;
   display: flex;
   justify-content: center;
 }
+
 .addUser-btn.admin {
   width: 58%;
 }
@@ -132,6 +148,7 @@ form{
 .addUser-btn.viewer {
   width: 38%;
 }
+
 .toast {
   position: fixed;
   bottom: 20px;
@@ -145,6 +162,7 @@ form{
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
+
 .toast.visible {
   opacity: 1;
   visibility: visible;
@@ -179,13 +197,16 @@ p {
 .table-container::-webkit-scrollbar {
   width: 10px;
 }
+
 .table-container::-webkit-scrollbar-thumb {
   background-color: hsl(0, 75%, 27%);
   border-radius: 5px;
 }
+
 .table-container::-webkit-scrollbar-thumb:hover {
   background-color: rgba(170, 34, 34, 0.8);
 }
+
 .table-container::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
@@ -197,6 +218,7 @@ p {
   justify-content: center;
   align-items: center;
 }
+
 .back-button {
   padding: 10px;
   border-radius: 10px;
@@ -209,11 +231,12 @@ p {
 
 .action-holder {
 
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
 }
+
 .btn {
   padding: 8px 16px;
   font-size: large;
@@ -227,6 +250,7 @@ p {
 .view-btn {
   background-color: #4caf50;
 }
+
 .view-btn:hover {
   background-color: #45a049;
 }
@@ -234,6 +258,7 @@ p {
 .edit-btn {
   background-color: #2196f3;
 }
+
 .edit-btn:hover {
   background-color: #0b7dda;
 }
@@ -241,10 +266,13 @@ p {
 .delete-btn {
   background-color: #f44336;
 }
+
 .delete-btn:hover {
   background-color: #e31b0c;
 }
-display-user p, .display-title p {
+
+display-user p,
+.display-title p {
   font-size: 1.5em;
   font-weight: bold;
   margin: 0;

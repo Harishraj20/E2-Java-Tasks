@@ -24,6 +24,7 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
+
 .error-back {
   height: 5%;
   font-size: larger;
@@ -139,6 +140,7 @@ input[type="reset"] {
   background-color: #2113df;
   font-size: larger;
 }
+
 .form-element label::after {
   content: " *";
   color: red;
@@ -152,6 +154,7 @@ input[type="reset"] {
 .submit-button:active {
   transform: scale(0.95);
 }
+
 .valid {
   border: 2px solid green !important;
 }

@@ -1,9 +1,9 @@
 package com.task.Model;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Login {
-
 
     private int logId;
     private User user;
@@ -56,5 +56,5 @@ public class Login {
     @Override
     public String toString() {
         return "Login{id=" + logId + ", loginDate=" + loginInfo + "}";
-    } 
+    }
 }

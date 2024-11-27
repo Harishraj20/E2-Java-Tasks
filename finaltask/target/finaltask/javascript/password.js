@@ -11,8 +11,9 @@ const userForm = document.querySelector("#changePasswordForm");
 // Display error message
 function displayErrorMessage(errorElementId, field, message) {
     const errorElement = document.querySelector(`#${errorElementId}`);
-    errorElement.textContent = message; 
+    errorElement.textContent = message;
     errorElement.style.visibility = "visible";
+    
     field.classList.add("invalid");
     field.classList.remove("valid");
 
@@ -143,7 +144,7 @@ resetButton.addEventListener("click", function () {
 
     const errorElements = document.querySelectorAll(".error-msg");
     errorElements.forEach(element => {
-        element.textContent = ""; 
+        element.textContent = "";
     });
 
     const fields = document.querySelectorAll("input, select");
@@ -155,5 +156,6 @@ resetButton.addEventListener("click", function () {
 const errorMessage = document.getElementById('errorMessage');
 if (errorMessage) {
     setTimeout(function () {
-      errorMessage.style.visibility = 'hidden';
-    }, 5000)};
+        errorMessage.style.visibility = 'hidden';
+    }, 5000)
+};

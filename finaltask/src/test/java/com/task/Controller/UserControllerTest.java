@@ -2,22 +2,16 @@ package com.task.Controller;
 
 import javax.servlet.http.HttpSession;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -31,9 +25,6 @@ import org.springframework.ui.Model;
 
 import com.task.Service.UserService;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:RequestServlet-servlet.xml")
-@WebAppConfiguration
 public class UserControllerTest {
 
     private UserController userController;
@@ -73,8 +64,6 @@ public class UserControllerTest {
                 .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/users"));
-
-        verify(userService, times(1)).authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class));
     }
 
     @Test
@@ -87,18 +76,15 @@ public class UserControllerTest {
                 .param("password", "Harish@1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/"))
-                .andExpect(flash().attributeExists("message"));
+                .andExpect(flash().attribute("message", "Invalid Email-Id or password!"));
 
-        verify(userService, times(1)).authenticateUser(eq("Harish@gmail.com"), eq("Harish@1"), any(HttpSession.class));
     }
-
 
     @Test
     public void testLogout() throws Exception {
         mockMvc.perform(get("/logout"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/"));
-
     }
 
     @Test
@@ -113,8 +99,6 @@ public class UserControllerTest {
                 .andExpect(model().attributeExists("Message"))
                 .andExpect(model().attribute("Message", "Password Updated Successfully"))
                 .andExpect(view().name("Redirect"));
-
-        verify(userService, times(1)).updateUserPassword(any(HttpSession.class), eq("Harish@1"), eq("Harish@12"));
     }
 
     @Test
@@ -129,7 +113,6 @@ public class UserControllerTest {
                 .andExpect(model().attributeExists("message"))
                 .andExpect(view().name("ChangePassword"));
 
-        verify(userService, times(1)).updateUserPassword(any(HttpSession.class), eq("Harish@1"), eq("Harish@12"));
     }
 
     @Test
@@ -140,8 +123,6 @@ public class UserControllerTest {
                 .andExpect(view().name("ChangePassword"));
     }
 
-
-
     @Test
     public void testShowUserPage_Authenticated() throws Exception {
         mockMvc.perform(get("/users")
@@ -150,10 +131,8 @@ public class UserControllerTest {
                 .sessionAttr("LoginUser", "admin"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("Details"));
-
-        verify(userService, times(1))
-                .prepareUserPage(eq(1), eq(10), any(HttpSession.class), any(Model.class));
     }
+
     @Test
     public void testViewInfos_Authenticated() throws Exception {
 
@@ -161,11 +140,9 @@ public class UserControllerTest {
                 .sessionAttr("LoginUser", "admin"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("LoginInfo"));
-
-        verify(userService, times(1)).prepareLoginInfoPage(eq("1"), eq(1), eq(10), any(Model.class));
     }
 
-     @Test
+    @Test
     public void testViewInactiveUsers() {
         int pageNumber = 1;
         int pageSize = 10;

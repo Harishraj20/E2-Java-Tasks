@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,14 +27,11 @@ public class CrudController {
     }
 
     protected static final Logger logger = LogManager.getLogger();
-    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @PostMapping("/users/add")
     public String addmethod(@ModelAttribute User user, Model model, RedirectAttributes redirectAttributes) {
 
         logger.info("received request to add new user.....");
-
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         boolean isAdded = service.addUsers(user);
         if (isAdded) {
             logger.info("User \"{}\" created successfully!", user.getUserName());
@@ -52,15 +48,14 @@ public class CrudController {
     }
 
     @PostMapping("/users/delete/{userId}")
-    public String deleteUser(@PathVariable String userId, RedirectAttributes redirectAttributes) {
+    public String deleteUser(@PathVariable int userId, RedirectAttributes redirectAttributes) {
         logger.info("Request received to delete the user; {}", userId);
-    
-        int user_id = Integer.parseInt(userId);
+
         logger.info("Attempting to delete user.....");
-        service.deleteUserById(user_id);
+        service.deleteUserById(userId);
     
         redirectAttributes.addFlashAttribute("toastMessage", 
-        "Employee with Id E2E50" + String.format("%02d", user_id) + " deleted successfully!");
+        "Employee with Id E2E50" + String.format("%02d", userId) + " deleted successfully!");
         
         logger.info("Redirecting to user page after deleting the user...");
         return "redirect:/users";
@@ -76,11 +71,10 @@ public class CrudController {
     }
 
     @GetMapping("/users/updateform/{userId}")
-    public String updateForm(@PathVariable String userId, Model model, HttpSession session) {
+    public String updateForm(@PathVariable int userId, Model model, HttpSession session) {
         logger.info("Received request to display update form for user with ID: {}", userId);
 
-        int userIdForAction = Integer.parseInt(userId);
-        User userToUpdate = service.findUserById(userIdForAction);
+        User userToUpdate = service.findUserById(userId);
 
    
 
@@ -96,15 +90,15 @@ public class CrudController {
     }
 
     @PostMapping("/users/update")
-    public String updatemethod(@ModelAttribute User updateUser, @RequestParam String refUserID, Model model,
+    public String updatemethod(@ModelAttribute User updateUser, @RequestParam int refUserID, Model model,
             RedirectAttributes redirectAttributes, HttpSession session) {
 
         logger.info("Received request to update user with ID: {}", refUserID);
 
-        boolean isUpdated = service.updateUsers(updateUser, Integer.parseInt(refUserID));
+        boolean isUpdated = service.updateUsers(updateUser, refUserID);
 
         if (isUpdated) {
-            session.setAttribute("LoginUser", service.findUserById(Integer.parseInt(refUserID)));
+            session.setAttribute("LoginUser", service.findUserById(refUserID));
             model.addAttribute("Message", "User updated successfully!");
             logger.info("User with ID: {} updated successfully", refUserID);
             return "message";

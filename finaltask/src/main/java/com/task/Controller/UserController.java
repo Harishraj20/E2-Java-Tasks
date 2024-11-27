@@ -37,14 +37,13 @@ public class UserController {
     public String loginUser(@RequestParam String emailId, @RequestParam String password, HttpSession session,
             RedirectAttributes redirectAttributes) {
 
-            
         logger.info("Attempting to authenticate user with the mail Id :{}", emailId);
 
         boolean isAuthenticated = service.authenticateUser(emailId, password, session);
         if (isAuthenticated) {
 
             logger.info("User authenticated succesfully: {}", emailId);
-            
+
             logger.info("Redirecting user to /users");
             return "redirect:/users";
         } else {
@@ -58,7 +57,8 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public String showUserPage(@RequestParam(defaultValue = "1") int pageNumber, @RequestParam(defaultValue = "10") int pageSize,  HttpSession session, Model model) {
+    public String showUserPage(@RequestParam(defaultValue = "1") int pageNumber,
+            @RequestParam(defaultValue = "10") int pageSize, HttpSession session, Model model) {
 
         service.prepareUserPage(pageNumber, pageSize, session, model);
 
@@ -98,7 +98,6 @@ public class UserController {
             @RequestParam(defaultValue = "1") int pageNumber,
             @RequestParam(defaultValue = "10") int pageSize) {
 
-        
         logger.info("request to view inactive users!");
 
         logger.info("Preparing inactive user info page");
@@ -114,7 +113,7 @@ public class UserController {
     public String changePasswordPage(HttpSession session, Model model) {
 
         logger.info("User requesting for change password page");
-        
+
         return "ChangePassword";
     }
 
