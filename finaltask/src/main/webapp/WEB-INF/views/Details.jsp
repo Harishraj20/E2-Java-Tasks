@@ -51,13 +51,13 @@
         <table border="1">
           <thead>
             <tr>
-              <th style="width: 10%">User Id</th>
-              <th style="width: 20%">Name</th>
-              <th>Email Id</th>
-              <th>Designation</th>
-              <th>Role</th>
-              <th>Date of Birth</th>
-              <th style="width: 20%">Actions</th>
+              <th class="user-id" style="width: 10%;">User Id</th>
+              <th class="name" style="width: 20%;">Name</th>
+              <th class="email-id">Email Id</th>
+              <th class="designation">Designation</th>
+              <th class="role">Role</th>
+              <th class="dob">Date of Birth</th>
+              <th class="actions" style="width: 20%;">Actions</th>
             </tr>
           </thead>
           <tbody>

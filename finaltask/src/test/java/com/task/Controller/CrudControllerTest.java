@@ -50,7 +50,7 @@ public class CrudControllerTest {
                 .param("userName", "Harish")
                 .param("password", "Harish@1"))
                 .andExpect(status().isOk())
-                .andExpect(model().attributeExists("msg"))
+                .andExpect(model().attributeExists("message"))
                 .andExpect(view().name("message"));
     }
 

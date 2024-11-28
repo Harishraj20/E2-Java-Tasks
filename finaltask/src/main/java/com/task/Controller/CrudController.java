@@ -35,7 +35,7 @@ public class CrudController {
         boolean isAdded = service.addUsers(user);
         if (isAdded) {
             logger.info("User \"{}\" created successfully!", user.getUserName());
-            model.addAttribute("msg", "User \"" + user.getUserName() + "\" Created Successfully!");
+            model.addAttribute("message", "User \"" + user.getUserName() + "\" Created Successfully!");
 
             return "message";
         } else {

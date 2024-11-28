@@ -212,3 +212,29 @@ p {
   display: flex;
   justify-content: center;
 }
+
+@media (min-width: 320px) and (max-width: 720px) {
+  p {
+      font-size: 8px;
+  }
+
+  th,
+  td {
+      font-size: 10px;
+  }
+}
+
+@media (min-width: 710px) and (max-width: 768px) {
+  p {
+      font-size: large;
+  }
+
+  th,
+  td {
+      font-size: large;
+  }
+
+  .logout-field {
+      width: 25%;
+  }
+}

@@ -29,8 +29,8 @@ body {
 }
 
 .holder {
-  width: 55%;
-  height: 70%;
+  width: 53%;
+  height: 56%;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -137,7 +137,7 @@ select {
   align-items: center;
   justify-content: center;
   gap: 10%;
-  margin-top: 4%;
+  margin-top: 1%;
 }
 
 .button-form {
@@ -275,4 +275,71 @@ i {
 
 .form-field {
   height: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .holder {
+    width: 85%;
+    height: 78%;
+  }
+
+  #userForm {
+    flex-direction: column;
+  }
+
+  .section {
+    width: 100%;
+    height: 49%;
+  }
+
+  .header {
+    height: 4%;
+  }
+
+  .data-error {
+    height: 5%;
+  }
+
+  .form-holder {
+    height: 76%;
+  }
+
+  .heading {
+    font-size: inherit;
+    font-weight: bold;
+  }
+
+  label {
+    font-weight: bold;
+    font-size: medium;
+    width: 43%;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    padding: 8px;
+    font-size: medium;
+  }
+
+  .error {
+    font-size: medium;
+  }
+
+  .reset-button {
+    width: 45%;
+  }
+
+  .submit-button {
+    width: 45%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+  .holder {
+    width: 85%;
+    height: 56%;
+  }
 }

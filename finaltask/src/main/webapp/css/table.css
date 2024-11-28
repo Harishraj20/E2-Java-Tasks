@@ -77,7 +77,7 @@ tr:nth-child(even) {
 }
 
 .logout-btn {
-  background-color: #8B0000;
+  background-color: #8b0000;
   color: white;
   border: 1px solid white;
   padding: 8px 12px;
@@ -149,47 +149,15 @@ form {
   width: 38%;
 }
 
-.toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.toast.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 p {
   font-size: 1.5em;
   font-weight: bold;
   margin: 0;
 }
 
-
 .table-container {
-  padding-right: 2%;
   width: 95%;
-  height: 67%;
+  height: 71%;
   overflow: auto;
   margin-left: 2%;
 }
@@ -230,7 +198,6 @@ p {
 }
 
 .action-holder {
-
   width: 100%;
   display: flex;
   justify-content: center;
@@ -276,4 +243,125 @@ display-user p,
   font-size: 1.5em;
   font-weight: bold;
   margin: 0;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .add-btn {
+    font-size: 13px;
+  }
+
+  .addUser-btn {
+    width: 42%;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .display-user p,
+  .display-title p {
+    font-size: 13px;
+  }
+
+  .display-user {
+    width: 30%;
+    height: 100%;
+  }
+
+  .logout-btn {
+    padding: 5px 5px;
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  th,
+  td {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 999px) {
+  .addUser-btn.admin {
+    width: 97%;
+  }
+
+  .addUser-btn.viewer {
+    width: 97%;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  display-user p,
+  .display-title p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .logout-btn {
+    padding: 5px 5px;
+  }
+
+  .addUser-btn {
+    width: 97%;
+  }
+
+  th,
+  td {
+    font-size: large;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1400px) {
+  .add-btn {
+    font-size: 18px;
+  }
+
+  .addUser-btn {
+    width: 55%;
+    padding: 15px;
+  }
+
+  .display-user p,
+  .display-title p {
+    font-size: larger;
+  }
+
+  .display-user {
+    width: 30%;
+    height: 100%;
+  }
+
+  .logout-btn {
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  th,
+  td {
+    font-size: 18px;
+  }
+
+  th.actions {
+    width: 5% !important;
+  }
+
+  th.user-id {
+    width: 9% !important;
+  }
+
+  th.name {
+    width: 10% !important;
+  }
 }
